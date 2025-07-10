@@ -66,9 +66,6 @@ export const getAmenitiesByCategory = (category) => {
   return hotelAmenities.filter(amenity => amenity.category === category);
 };
 
-export const getAvailableAmenities = () => {
-  return hotelAmenities.filter(amenity => amenity.available);
-};
 
 export const getAmenityById = (id) => {
   return hotelAmenities.find(amenity => amenity.id === id);
