@@ -1,63 +1,29 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import { rooms as allRooms, roomTypes } from '../data/rooms';
 
-const Rooms = ({ onNavigate }) => {
+const Rooms = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState('all');
 
   const filters = [
     { key: 'all', label: t('rooms.filter.all') },
     { key: 'available', label: t('rooms.filter.available') },
-    { key: 'luxury', label: t('rooms.filter.luxury') },
-    { key: 'standard', label: t('rooms.filter.standard') },
+    { key: 'luxury', label: 'Luxury Suites' },
+    { key: 'standard', label: 'Standard Rooms' },
   ];
 
-  const rooms = [
-    {
-      id: 1,
-      name: 'Luxury Suite',
-      type: 'luxury',
-      guests: 2,
-      size: '45m²',
-      price: '€150/night',
-      amenities: ['Wi-Fi', 'Breakfast', 'Spa'],
-      available: true,
-    },
-    {
-      id: 2,
-      name: 'Deluxe Room',
-      type: 'standard',
-      guests: 2,
-      size: '35m²',
-      price: '€120/night',
-      amenities: ['Wi-Fi', 'Breakfast'],
-      available: true,
-    },
-    {
-      id: 3,
-      name: 'Presidential Suite',
-      type: 'luxury',
-      guests: 4,
-      size: '80m²',
-      price: '€300/night',
-      amenities: ['Wi-Fi', 'Breakfast', 'Spa', 'Butler'],
-      available: false,
-    },
-    {
-      id: 4,
-      name: 'Standard Room',
-      type: 'standard',
-      guests: 2,
-      size: '25m²',
-      price: '€90/night',
-      amenities: ['Wi-Fi'],
-      available: true,
-    },
-  ];
-
-  const filteredRooms = rooms.filter(room => {
+  const filteredRooms = allRooms.filter(room => {
     if (activeFilter === 'all') return true;
-    if (activeFilter === 'available') return room.available;
+    if (activeFilter === 'available') return room.availability.available;
+    if (activeFilter === 'luxury') {
+      return room.type === roomTypes.LUXURY_SUITE || room.type === roomTypes.PRESIDENTIAL;
+    }
+    if (activeFilter === 'standard') {
+      return room.type === roomTypes.STANDARD || room.type === roomTypes.DELUXE || room.type === roomTypes.JUNIOR_SUITE;
+    }
     return room.type === activeFilter;
   });
 
@@ -104,9 +70,13 @@ const Rooms = ({ onNavigate }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredRooms.map((room) => (
               <div key={room.id} className="card">
-                <div className="h-48 bg-primary-100 flex items-center justify-center relative">
-                  <span className="text-primary-600 font-semibold">Room {room.id} Image</span>
-                  {!room.available && (
+                <div className="h-48 overflow-hidden relative">
+                  <img
+                    src={room.images[0]}
+                    alt={room.name}
+                    className="w-full h-full object-cover"
+                  />
+                  {!room.availability.available && (
                     <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-sm">
                       Unavailable
                     </div>
@@ -115,11 +85,18 @@ const Rooms = ({ onNavigate }) => {
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-secondary-900">{room.name}</h3>
-                    <span className="text-primary-600 font-bold">{room.price}</span>
+                    <span className="text-primary-600 font-bold">
+                      {room.pricing.currency}{room.pricing.basePrice}/{room.pricing.period}
+                    </span>
                   </div>
                   
+                  <p className="text-secondary-600 text-sm mb-4 leading-relaxed">
+                    {room.description}
+                  </p>
+                  
                   <div className="flex items-center gap-4 mb-4 text-sm text-secondary-600">
-                    <span>{room.guests} {t('rooms.details.guests')}</span>
+                    <span>{room.capacity.adults} adults</span>
+                    {room.capacity.children > 0 && <span>{room.capacity.children} children</span>}
                     <span>{room.size}</span>
                   </div>
                   
@@ -128,14 +105,20 @@ const Rooms = ({ onNavigate }) => {
                       {t('rooms.details.amenities')}:
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {room.amenities.map((amenity, index) => (
+                      {room.amenities.slice(0, 4).map((amenity, index) => (
                         <span
                           key={index}
                           className="px-2 py-1 bg-primary-100 text-primary-700 rounded text-sm"
+                          title={amenity.name}
                         >
-                          {amenity}
+                          {amenity.icon} {amenity.name}
                         </span>
                       ))}
+                      {room.amenities.length > 4 && (
+                        <span className="px-2 py-1 bg-secondary-100 text-secondary-600 rounded text-sm">
+                          +{room.amenities.length - 4} more
+                        </span>
+                      )}
                     </div>
                   </div>
                   
@@ -145,10 +128,10 @@ const Rooms = ({ onNavigate }) => {
                     </button>
                     <button 
                       className={`btn-primary flex-1 ${
-                        !room.available ? 'opacity-50 cursor-not-allowed' : ''
+                        !room.availability.available ? 'opacity-50 cursor-not-allowed' : ''
                       }`}
-                      disabled={!room.available}
-                      onClick={() => !room.available ? null : onNavigate && onNavigate('/booking')}
+                      disabled={!room.availability.available}
+                      onClick={() => !room.availability.available ? null : navigate('/booking')}
                     >
                       {t('rooms.details.bookNow')}
                     </button>

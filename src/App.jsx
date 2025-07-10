@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import LanguageSelection from './pages/LanguageSelection';
 import Header from './components/common/Header';
@@ -48,7 +49,9 @@ function App() {
         {showLanguageSelection ? (
           <LanguageSelection onLanguageSelected={handleLanguageSelected} />
         ) : (
-          <MainApp />
+          <Router>
+            <MainApp />
+          </Router>
         )}
       </div>
     </LanguageProvider>
@@ -57,34 +60,18 @@ function App() {
 
 // Main App component that will contain the hotel website
 const MainApp = () => {
-  const [currentPage, setCurrentPage] = useState('/');
-
-  const handleNavigate = (path) => {
-    setCurrentPage(path);
-  };
-
-  const renderCurrentPage = () => {
-    switch (currentPage) {
-      case '/':
-        return <Home onNavigate={handleNavigate} />;
-      case '/rooms':
-        return <Rooms onNavigate={handleNavigate} />;
-      case '/about':
-        return <About onNavigate={handleNavigate} />;
-      case '/booking':
-        return <Booking onNavigate={handleNavigate} />;
-      default:
-        return <Home onNavigate={handleNavigate} />;
-    }
-  };
-
   return (
     <div className="min-h-screen bg-white">
-      <Header currentPage={currentPage} onNavigate={handleNavigate} />
+      <Header />
       <main>
-        {renderCurrentPage()}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/rooms" element={<Rooms />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/booking" element={<Booking />} />
+        </Routes>
       </main>
-      <Footer onNavigate={handleNavigate} />
+      <Footer />
     </div>
   );
 };

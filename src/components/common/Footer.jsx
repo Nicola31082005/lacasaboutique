@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 
-const Footer = ({ onNavigate }) => {
+const Footer = () => {
   const { t } = useLanguage();
 
   const socialLinks = [
@@ -77,12 +78,12 @@ const Footer = ({ onNavigate }) => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <button
-                    onClick={() => onNavigate && onNavigate(link.path)}
+                  <Link
+                    to={link.path}
                     className="text-secondary-300 hover:text-primary-400 transition-colors duration-200"
                   >
                     {link.name}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>

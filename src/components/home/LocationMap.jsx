@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
+import hotelInfo from '../../data/hotelInfo';
 import L from 'leaflet';
 
 // Import Leaflet CSS
@@ -32,14 +33,14 @@ const LocationMap = () => {
   const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
 
-  // Sofia, Bulgaria coordinates (placeholder - you can change to actual hotel location)
+  // Hotel location from static data
   const hotelLocation = {
-    lat: 42.6977,
-    lng: 23.3219,
-    name: 'La Casa Boutique - GF',
-    address: '123 Luxury Street, Sofia, Bulgaria',
-    phone: '+359 2 123 4567',
-    email: 'info@lacasaboutique.com'
+    lat: hotelInfo.contact.location.lat,
+    lng: hotelInfo.contact.location.lng,
+    name: hotelInfo.name,
+    address: hotelInfo.contact.address,
+    phone: hotelInfo.contact.phone,
+    email: hotelInfo.contact.email
   };
 
   useEffect(() => {
@@ -183,7 +184,7 @@ const LocationMap = () => {
                   <span className="text-2xl">🚗</span>
                   <div>
                     <p className="font-medium text-secondary-900">By Car</p>
-                    <p className="text-secondary-600 text-sm">Free parking available</p>
+                    <p className="text-secondary-600 text-sm">{hotelInfo.transportation.parking.type}</p>
                   </div>
                 </div>
 
@@ -191,7 +192,7 @@ const LocationMap = () => {
                   <span className="text-2xl">🚇</span>
                   <div>
                     <p className="font-medium text-secondary-900">By Metro</p>
-                    <p className="text-secondary-600 text-sm">5 min walk from metro station</p>
+                    <p className="text-secondary-600 text-sm">{hotelInfo.transportation.metro.walkTime} walk from {hotelInfo.transportation.metro.station}</p>
                   </div>
                 </div>
 
@@ -199,7 +200,7 @@ const LocationMap = () => {
                   <span className="text-2xl">✈️</span>
                   <div>
                     <p className="font-medium text-secondary-900">From Airport</p>
-                    <p className="text-secondary-600 text-sm">30 min by taxi/metro</p>
+                    <p className="text-secondary-600 text-sm">{hotelInfo.transportation.airport.time} by {hotelInfo.transportation.airport.methods.join('/')}</p>
                   </div>
                 </div>
               </div>

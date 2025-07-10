@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 
 // Import Swiper styles
@@ -10,8 +11,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-const HeroCarousel = ({ onNavigate }) => {
+const HeroCarousel = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -110,7 +112,7 @@ const HeroCarousel = ({ onNavigate }) => {
                     {index === 0 && ( // Only show CTA button on first slide
                       <motion.button
                         className="btn-primary text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-                        onClick={() => onNavigate && onNavigate('/booking')}
+                        onClick={() => navigate('/booking')}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >

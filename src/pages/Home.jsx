@@ -1,16 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import HeroCarousel from '../components/home/HeroCarousel';
 import RoomCards from '../components/home/RoomCards';
 import LocationMap from '../components/home/LocationMap';
 
-const Home = ({ onNavigate }) => {
+const Home = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen">
       {/* Hero Carousel */}
-      <HeroCarousel onNavigate={onNavigate} />
+      <HeroCarousel />
 
       {/* Introduction Section */}
       <section className="section-padding bg-white">
@@ -39,12 +41,12 @@ const Home = ({ onNavigate }) => {
           </div>
           
           {/* Room Cards Carousel */}
-          <RoomCards onNavigate={onNavigate} />
+          <RoomCards />
           
           <div className="text-center mt-12">
             <button 
               className="btn-primary"
-              onClick={() => onNavigate && onNavigate('/rooms')}
+              onClick={() => navigate('/rooms')}
             >
               {t('home.rooms.viewAll')}
             </button>

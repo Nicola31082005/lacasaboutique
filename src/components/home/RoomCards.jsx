@@ -2,58 +2,21 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
+import { getAvailableRooms } from '../../data/rooms';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const RoomCards = ({ onNavigate }) => {
+const RoomCards = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
-  const rooms = [
-    {
-      id: 1,
-      name: 'Luxury Suite',
-      description: 'Spacious suite with panoramic city views, marble bathroom, and premium amenities',
-      image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      price: '€150',
-      features: ['City View', 'King Bed', 'Marble Bath', 'Balcony']
-    },
-    {
-      id: 2,
-      name: 'Deluxe Room',
-      description: 'Elegantly designed room with modern comfort and sophisticated style',
-      image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80',
-      price: '€120',
-      features: ['Garden View', 'Queen Bed', 'Workspace', 'Wi-Fi']
-    },
-    {
-      id: 3,
-      name: 'Presidential Suite',
-      description: 'Ultimate luxury with separate living area, premium furnishings, and exclusive services',
-      image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      price: '€300',
-      features: ['Living Area', 'Butler Service', 'Premium Bar', 'Terrace']
-    },
-    {
-      id: 4,
-      name: 'Executive Room',
-      description: 'Perfect for business travelers with modern amenities and workspace',
-      image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2126&q=80',
-      price: '€100',
-      features: ['Business Desk', 'High-Speed Wi-Fi', 'Coffee Machine', 'City View']
-    },
-    {
-      id: 5,
-      name: 'Junior Suite',
-      description: 'Comfortable accommodation with separate seating area and modern amenities',
-      image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80',
-      price: '€180',
-      features: ['Seating Area', 'Minibar', 'Room Service', 'Garden View']
-    }
-  ];
+  // Get available rooms from static data
+  const rooms = getAvailableRooms();
 
   return (
     <div className="relative">
@@ -106,7 +69,7 @@ const RoomCards = ({ onNavigate }) => {
               {/* Room Image */}
               <div className="relative h-64 overflow-hidden">
                 <img
-                  src={room.image}
+                  src={room.images[0]}
                   alt={room.name}
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 />
@@ -114,7 +77,7 @@ const RoomCards = ({ onNavigate }) => {
                 
                 {/* Price Badge */}
                 <div className="absolute top-4 right-4 bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
-                  {room.price}/night
+                  {room.pricing.currency}{room.pricing.basePrice}/{room.pricing.period}
                 </div>
               </div>
 
@@ -128,17 +91,32 @@ const RoomCards = ({ onNavigate }) => {
                   {room.description}
                 </p>
 
-                {/* Features */}
+                {/* Room Info */}
+                <div className="mb-4 text-sm text-secondary-600">
+                  <div className="flex items-center gap-4">
+                    <span>{room.size}</span>
+                    <span>{room.capacity.adults} adults</span>
+                    {room.capacity.children > 0 && <span>{room.capacity.children} children</span>}
+                  </div>
+                </div>
+
+                {/* Amenities */}
                 <div className="mb-6">
                   <div className="flex flex-wrap gap-2">
-                    {room.features.map((feature, featureIndex) => (
+                    {room.amenities.slice(0, 6).map((amenity, amenityIndex) => (
                       <span
-                        key={featureIndex}
+                        key={amenityIndex}
                         className="px-2 py-1 bg-primary-50 text-primary-700 rounded text-xs font-medium"
+                        title={amenity.name}
                       >
-                        {feature}
+                        {amenity.icon} {amenity.name}
                       </span>
                     ))}
+                    {room.amenities.length > 6 && (
+                      <span className="px-2 py-1 bg-secondary-100 text-secondary-600 rounded text-xs font-medium">
+                        +{room.amenities.length - 6} more
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -146,13 +124,13 @@ const RoomCards = ({ onNavigate }) => {
                 <div className="flex gap-2">
                   <button 
                     className="btn-secondary flex-1 text-sm py-2"
-                    onClick={() => onNavigate && onNavigate('/rooms')}
+                    onClick={() => navigate('/rooms')}
                   >
                     {t('rooms.details.viewDetails')}
                   </button>
                   <button 
                     className="btn-primary flex-1 text-sm py-2"
-                    onClick={() => onNavigate && onNavigate('/booking')}
+                    onClick={() => navigate('/booking')}
                   >
                     {t('rooms.details.bookNow')}
                   </button>

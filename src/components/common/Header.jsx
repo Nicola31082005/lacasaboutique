@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 
-const Header = ({ currentPage, onNavigate }) => {
+const Header = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const currentPage = location.pathname;
 
   const navigationItems = [
     { key: 'home', label: t('nav.home'), path: '/' },
@@ -17,8 +20,7 @@ const Header = ({ currentPage, onNavigate }) => {
     setLanguage(newLanguage);
   };
 
-  const handleNavigation = (path) => {
-    onNavigate(path);
+  const handleMobileMenuClose = () => {
     setIsMobileMenuOpen(false);
   };
 
@@ -27,10 +29,7 @@ const Header = ({ currentPage, onNavigate }) => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div 
-            className="flex items-center space-x-3 cursor-pointer"
-            onClick={() => handleNavigation('/')}
-          >
+          <Link to="/" className="flex items-center space-x-3 cursor-pointer">
             <div className="w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-sm">LC</span>
             </div>
@@ -39,14 +38,14 @@ const Header = ({ currentPage, onNavigate }) => {
                 La Casa Boutique - GF
               </h1>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigationItems.map((item) => (
-              <button
+              <Link
                 key={item.key}
-                onClick={() => handleNavigation(item.path)}
+                to={item.path}
                 className={`font-medium transition-colors duration-200 ${
                   currentPage === item.path
                     ? 'text-primary-600 border-b-2 border-primary-600 pb-1'
@@ -54,7 +53,7 @@ const Header = ({ currentPage, onNavigate }) => {
                 }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </nav>
 
@@ -104,9 +103,10 @@ const Header = ({ currentPage, onNavigate }) => {
           <div className="md:hidden border-t border-secondary-200 bg-white">
             <nav className="py-4">
               {navigationItems.map((item) => (
-                <button
+                <Link
                   key={item.key}
-                  onClick={() => handleNavigation(item.path)}
+                  to={item.path}
+                  onClick={handleMobileMenuClose}
                   className={`block w-full text-left px-4 py-3 font-medium transition-colors duration-200 ${
                     currentPage === item.path
                       ? 'text-primary-600 bg-primary-50 border-l-4 border-primary-600'
@@ -114,7 +114,7 @@ const Header = ({ currentPage, onNavigate }) => {
                   }`}
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
             </nav>
           </div>
