@@ -108,27 +108,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Newsletter Section */}
-        <div className="border-t border-secondary-800 py-8">
-          <div className="text-center">
-            <h4 className="text-lg font-semibold text-white mb-4">
-              Stay Connected
-            </h4>
-            <p className="text-secondary-300 mb-6">
-              Subscribe to our newsletter for special offers and updates
-            </p>
-            <div className="flex flex-col sm:flex-row max-w-md mx-auto gap-4">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg bg-secondary-800 border border-secondary-700 text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
-              />
-              <button className="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-300 font-medium">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
+
 
         {/* Bottom Footer */}
         <div className="border-t border-secondary-800 py-6">

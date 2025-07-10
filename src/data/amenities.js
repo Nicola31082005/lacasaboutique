@@ -260,7 +260,7 @@ export const getAmenityById = (id) => {
 
 export const getFeaturedAmenities = () => {
   return hotelAmenities.filter(amenity => 
-    ['spa', 'fitness', 'restaurant', 'bar', 'pool', 'business_center', 'wifi', 'concierge'].includes(amenity.id)
+    ['fitness', 'restaurant', 'wifi', ].includes(amenity.id)
   );
 };
 
