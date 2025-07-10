@@ -1,31 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { rooms as allRooms, roomTypes } from '../data/rooms';
+import { rooms as allRooms } from '../data/rooms';
 
 const Rooms = () => {
   const { t } = useLanguage();
   const navigate = useNavigate();
-  const [activeFilter, setActiveFilter] = useState('all');
-
-  const filters = [
-    { key: 'all', label: t('rooms.filter.all') },
-    { key: 'available', label: t('rooms.filter.available') },
-    { key: 'luxury', label: 'Luxury Suites' },
-    { key: 'standard', label: 'Standard Rooms' },
-  ];
-
-  const filteredRooms = allRooms.filter(room => {
-    if (activeFilter === 'all') return true;
-    if (activeFilter === 'available') return room.availability.available;
-    if (activeFilter === 'luxury') {
-      return room.type === roomTypes.LUXURY_SUITE || room.type === roomTypes.PRESIDENTIAL;
-    }
-    if (activeFilter === 'standard') {
-      return room.type === roomTypes.STANDARD || room.type === roomTypes.DELUXE || room.type === roomTypes.JUNIOR_SUITE;
-    }
-    return room.type === activeFilter;
-  });
 
   return (
     <div className="min-h-screen">
@@ -43,32 +23,11 @@ const Rooms = () => {
         </div>
       </section>
 
-      {/* Filter Section */}
-      <section className="py-8 bg-white border-b border-secondary-200">
-        <div className="container-custom">
-          <div className="flex flex-wrap justify-center gap-4">
-            {filters.map((filter) => (
-              <button
-                key={filter.key}
-                onClick={() => setActiveFilter(filter.key)}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                  activeFilter === filter.key
-                    ? 'bg-primary-600 text-white'
-                    : 'bg-secondary-100 text-secondary-700 hover:bg-secondary-200'
-                }`}
-              >
-                {filter.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Rooms Grid */}
       <section className="section-padding bg-secondary-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredRooms.map((room) => (
+            {allRooms.map((room) => (
               <div key={room.id} className="card">
                 <div className="h-48 overflow-hidden relative">
                   <img
@@ -132,10 +91,10 @@ const Rooms = () => {
             ))}
           </div>
           
-          {filteredRooms.length === 0 && (
+          {allRooms.length === 0 && (
             <div className="text-center py-12">
               <p className="text-secondary-600 text-lg">
-                No rooms found matching your criteria.
+                No rooms available.
               </p>
             </div>
           )}
