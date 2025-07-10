@@ -83,15 +83,12 @@ export const rooms = [
     // Amenities
     amenities: [
       roomAmenities.WIFI,
-      roomAmenities.AC,
       roomAmenities.TV,
       roomAmenities.DESK,
-      roomAmenities.CITY_VIEW,
       roomAmenities.KING_BED,
       roomAmenities.SAFE,
       roomAmenities.BATHROOM_LUXURY,
-      roomAmenities.BREAKFAST,
-      roomAmenities.GYM_ACCESS
+      roomAmenities.BREAKFAST
     ],
     
     // Availability
@@ -255,24 +252,13 @@ export const rooms = [
     
     amenities: [
       roomAmenities.WIFI,
-      roomAmenities.AC,
       roomAmenities.TV,
       roomAmenities.MINIBAR,
-      roomAmenities.PREMIUM_BAR,
       roomAmenities.CITY_VIEW,
       roomAmenities.BALCONY,
       roomAmenities.KING_BED,
       roomAmenities.SAFE,
-      roomAmenities.MARBLE_BATH,
-      roomAmenities.SEPARATE_SHOWER,
-      roomAmenities.BATHROBE,
-      roomAmenities.DESK,
-      roomAmenities.CONCIERGE,
-      roomAmenities.ROOM_SERVICE,
-      roomAmenities.BREAKFAST,
-      roomAmenities.SPA_ACCESS,
-      roomAmenities.GYM_ACCESS,
-      roomAmenities.POOL_ACCESS
+      roomAmenities.BREAKFAST
     ],
     
     availability: {
@@ -318,26 +304,13 @@ export const rooms = [
     
     amenities: [
       roomAmenities.WIFI,
-      roomAmenities.AC,
       roomAmenities.TV,
       roomAmenities.MINIBAR,
-      roomAmenities.PREMIUM_BAR,
       roomAmenities.CITY_VIEW,
-      roomAmenities.TERRACE,
+      roomAmenities.BALCONY,
       roomAmenities.KING_BED,
       roomAmenities.SAFE,
-      roomAmenities.MARBLE_BATH,
-      roomAmenities.SEPARATE_SHOWER,
-      roomAmenities.BATHROBE,
-      roomAmenities.DESK,
-      roomAmenities.PRINTER,
-      roomAmenities.BUTLER_SERVICE,
-      roomAmenities.CONCIERGE,
-      roomAmenities.ROOM_SERVICE,
-      roomAmenities.BREAKFAST,
-      roomAmenities.SPA_ACCESS,
-      roomAmenities.GYM_ACCESS,
-      roomAmenities.POOL_ACCESS
+      roomAmenities.BREAKFAST
     ],
     
     availability: {

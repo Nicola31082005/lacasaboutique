@@ -5,12 +5,7 @@ import { useLanguage } from '../../context/LanguageContext';
 const Footer = () => {
   const { t } = useLanguage();
 
-  const socialLinks = [
-    { name: 'Facebook', icon: '📘', url: '#' },
-    { name: 'Instagram', icon: '📷', url: '#' },
-    { name: 'Twitter', icon: '🐦', url: '#' },
-    { name: 'LinkedIn', icon: '💼', url: '#' },
-  ];
+  
 
   const quickLinks = [
     { name: t('nav.home'), path: '/' },
@@ -57,18 +52,7 @@ const Footer = () => {
               Experience luxury and comfort in the heart of the city. Our boutique hotel offers 
               personalized service and elegant accommodations for the discerning traveler.
             </p>
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  className="w-10 h-10 bg-secondary-800 rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors duration-300"
-                  title={social.name}
-                >
-                  <span className="text-lg">{social.icon}</span>
-                </a>
-              ))}
-            </div>
+         
           </div>
 
           {/* Quick Links */}
@@ -116,17 +100,7 @@ const Footer = () => {
             <p className="text-secondary-400 text-sm">
               {t('footer.copyright')}
             </p>
-            <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-secondary-400 hover:text-primary-400 transition-colors duration-200">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-secondary-400 hover:text-primary-400 transition-colors duration-200">
-                Terms of Service
-              </a>
-              <a href="#" className="text-secondary-400 hover:text-primary-400 transition-colors duration-200">
-                Cookies
-              </a>
-            </div>
+            
           </div>
         </div>
       </div>

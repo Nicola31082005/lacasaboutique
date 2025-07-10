@@ -28,7 +28,7 @@ const Rooms = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {allRooms.map((room) => (
-              <div key={room.id} className="card">
+              <div key={room.id} className="card cursor-pointer" onClick={() => navigate(`/rooms/${room.id}`)}>
                 <div className="h-48 overflow-hidden relative">
                   <img
                     src={room.images[0]}
@@ -77,7 +77,10 @@ const Rooms = () => {
                   </div>
                   
                   <div className="flex gap-2">
-                    <button className="btn-primary w-full">
+                    <button 
+                      className="btn-primary w-full"
+                      onClick={() => navigate(`/rooms/${room.id}`)}
+                    >
                       {t('rooms.details.viewDetails')}
                     </button>
                   </div>

@@ -59,12 +59,13 @@ const RoomCards = () => {
         {rooms.map((room, index) => (
           <SwiperSlide key={room.id}>
             <motion.div
-              className="card h-[500px] flex flex-col"
+              className="card h-[500px] flex flex-col cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -8 }}
+              onClick={() => navigate(`/rooms/${room.id}`)}
             >
               {/* Room Image */}
               <div className="relative h-64 overflow-hidden">
@@ -124,7 +125,7 @@ const RoomCards = () => {
                 <div className="flex gap-2 mt-auto">
                   <button 
                     className="btn-primary w-full text-sm py-2"
-                    onClick={() => navigate('/rooms')}
+                    onClick={() => navigate(`/rooms/${room.id}`)}
                   >
                     {t('rooms.details.viewDetails')}
                   </button>

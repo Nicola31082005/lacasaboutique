@@ -6,6 +6,7 @@ import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import Home from './pages/Home';
 import Rooms from './pages/Rooms';
+import RoomDetail from './pages/RoomDetail';
 import About from './pages/About';
 
 function App() {
@@ -66,6 +67,7 @@ const MainApp = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/rooms" element={<Rooms />} />
+          <Route path="/rooms/:roomId" element={<RoomDetail />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </main>
