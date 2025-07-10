@@ -341,9 +341,9 @@ export const rooms = [
     ],
     
     availability: {
-      available: false,
+      available: true,
       totalRooms: 2,
-      availableRooms: 0
+      availableRooms: 2
     },
     
     features: {

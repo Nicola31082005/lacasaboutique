@@ -39,10 +39,14 @@ const Home = () => {
               {t('home.rooms.subtitle')}
             </p>
           </div>
+        </div>
           
-          {/* Room Cards Carousel */}
+        {/* Room Cards Carousel - Full Width */}
+        <div className="w-full">
           <RoomCards />
-          
+        </div>
+        
+        <div className="container-custom">
           <div className="text-center mt-12">
             <button 
               className="btn-primary"

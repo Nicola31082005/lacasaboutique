@@ -19,7 +19,7 @@ const RoomCards = () => {
   const rooms = getAvailableRooms();
 
   return (
-    <div className="relative">
+    <div className="relative px-4 md:px-8">
       <Swiper
         modules={[Autoplay, Navigation, Pagination]}
         spaceBetween={24}
@@ -59,7 +59,7 @@ const RoomCards = () => {
         {rooms.map((room, index) => (
           <SwiperSlide key={room.id}>
             <motion.div
-              className="card h-full"
+              className="card h-[500px] flex flex-col"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -82,12 +82,12 @@ const RoomCards = () => {
               </div>
 
               {/* Room Details */}
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <h3 className="mb-3 text-secondary-900 text-xl font-semibold">
                   {room.name}
                 </h3>
                 
-                <p className="text-secondary-600 mb-4 text-sm leading-relaxed">
+                <p className="text-secondary-600 mb-4 text-sm leading-relaxed h-12 overflow-hidden">
                   {room.description}
                 </p>
 
@@ -101,7 +101,7 @@ const RoomCards = () => {
                 </div>
 
                 {/* Amenities */}
-                <div className="mb-6">
+                <div className="mb-6 flex-1">
                   <div className="flex flex-wrap gap-2">
                     {room.amenities.slice(0, 6).map((amenity, amenityIndex) => (
                       <span
@@ -121,7 +121,7 @@ const RoomCards = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-2">
+                <div className="flex gap-2 mt-auto">
                   <button 
                     className="btn-primary w-full text-sm py-2"
                     onClick={() => navigate('/rooms')}

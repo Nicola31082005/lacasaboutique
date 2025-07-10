@@ -35,11 +35,6 @@ const Rooms = () => {
                     alt={room.name}
                     className="w-full h-full object-cover"
                   />
-                  {!room.availability.available && (
-                    <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-sm">
-                      Unavailable
-                    </div>
-                  )}
                 </div>
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
