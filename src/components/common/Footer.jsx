@@ -16,7 +16,6 @@ const Footer = () => {
     { name: t('nav.home'), path: '/' },
     { name: t('nav.rooms'), path: '/rooms' },
     { name: t('nav.about'), path: '/about' },
-    { name: t('nav.booking'), path: '/booking' },
   ];
 
   const contactInfo = [

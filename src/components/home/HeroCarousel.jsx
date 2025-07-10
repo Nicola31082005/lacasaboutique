@@ -109,16 +109,6 @@ const HeroCarousel = () => {
                     <p className="text-xl md:text-2xl mb-8 text-white/90 drop-shadow-md leading-relaxed">
                       {slide.subtitle}
                     </p>
-                    {index === 0 && ( // Only show CTA button on first slide
-                      <motion.button
-                        className="btn-primary text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-                        onClick={() => navigate('/booking')}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        {t('home.hero.cta')}
-                      </motion.button>
-                    )}
                   </motion.div>
                 </div>
               </div>

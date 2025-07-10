@@ -123,16 +123,10 @@ const RoomCards = () => {
                 {/* Action Buttons */}
                 <div className="flex gap-2">
                   <button 
-                    className="btn-secondary flex-1 text-sm py-2"
+                    className="btn-primary w-full text-sm py-2"
                     onClick={() => navigate('/rooms')}
                   >
                     {t('rooms.details.viewDetails')}
-                  </button>
-                  <button 
-                    className="btn-primary flex-1 text-sm py-2"
-                    onClick={() => navigate('/booking')}
-                  >
-                    {t('rooms.details.bookNow')}
                   </button>
                 </div>
               </div>

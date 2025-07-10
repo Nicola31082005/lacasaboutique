@@ -12,7 +12,6 @@ const Header = () => {
     { key: 'home', label: t('nav.home'), path: '/' },
     { key: 'rooms', label: t('nav.rooms'), path: '/rooms' },
     { key: 'about', label: t('nav.about'), path: '/about' },
-    { key: 'booking', label: t('nav.booking'), path: '/booking' },
   ];
 
   const handleLanguageToggle = () => {

@@ -123,17 +123,8 @@ const Rooms = () => {
                   </div>
                   
                   <div className="flex gap-2">
-                    <button className="btn-secondary flex-1">
+                    <button className="btn-primary w-full">
                       {t('rooms.details.viewDetails')}
-                    </button>
-                    <button 
-                      className={`btn-primary flex-1 ${
-                        !room.availability.available ? 'opacity-50 cursor-not-allowed' : ''
-                      }`}
-                      disabled={!room.availability.available}
-                      onClick={() => !room.availability.available ? null : navigate('/booking')}
-                    >
-                      {t('rooms.details.bookNow')}
                     </button>
                   </div>
                 </div>

@@ -7,7 +7,6 @@ import Footer from './components/common/Footer';
 import Home from './pages/Home';
 import Rooms from './pages/Rooms';
 import About from './pages/About';
-import Booking from './pages/Booking';
 
 function App() {
   const [showLanguageSelection, setShowLanguageSelection] = useState(true);
@@ -68,7 +67,6 @@ const MainApp = () => {
           <Route path="/" element={<Home />} />
           <Route path="/rooms" element={<Rooms />} />
           <Route path="/about" element={<About />} />
-          <Route path="/booking" element={<Booking />} />
         </Routes>
       </main>
       <Footer />

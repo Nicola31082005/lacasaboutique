@@ -8,7 +8,6 @@ const translations = {
       home: 'Home',
       rooms: 'Rooms',
       about: 'About Us',
-      booking: 'Booking',
       language: 'Language'
     },
     
@@ -84,28 +83,6 @@ const translations = {
       }
     },
     
-    // Booking Page
-    booking: {
-      title: 'Book Your Stay',
-      form: {
-        checkIn: 'Check-in Date',
-        checkOut: 'Check-out Date',
-        guests: 'Number of Guests',
-        roomType: 'Room Type',
-        firstName: 'First Name',
-        lastName: 'Last Name',
-        email: 'Email',
-        phone: 'Phone Number',
-        specialRequests: 'Special Requests',
-        submit: 'Book Now',
-        required: 'Required field'
-      },
-      confirmation: {
-        title: 'Booking Confirmation',
-        message: 'Thank you for your booking! We will contact you shortly to confirm your reservation.'
-      }
-    },
-    
     // Footer
     footer: {
       contact: {
@@ -141,7 +118,6 @@ const translations = {
       home: 'Начало',
       rooms: 'Стаи',
       about: 'За нас',
-      booking: 'Резервация',
       language: 'Език'
     },
     
@@ -214,28 +190,6 @@ const translations = {
       team: {
         title: 'Нашият екип',
         description: 'Нашият отдаден екип от професионалисти е ангажиран да направи вашия престой незабравим.'
-      }
-    },
-    
-    // Booking Page
-    booking: {
-      title: 'Резервирайте вашия престой',
-      form: {
-        checkIn: 'Дата на настаняване',
-        checkOut: 'Дата на напускане',
-        guests: 'Брой гости',
-        roomType: 'Тип стая',
-        firstName: 'Име',
-        lastName: 'Фамилия',
-        email: 'Имейл',
-        phone: 'Телефон',
-        specialRequests: 'Специални заявки',
-        submit: 'Резервирайте сега',
-        required: 'Задължително поле'
-      },
-      confirmation: {
-        title: 'Потвърждение на резервацията',
-        message: 'Благодарим ви за резервацията! Ще се свържем с вас скоро, за да потвърдим вашата резервация.'
       }
     },
     

@@ -143,9 +143,9 @@ const About = () => {
             </p>
             <button 
               className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-primary-50 transition-colors duration-300"
-              onClick={() => navigate('/booking')}
+              onClick={() => navigate('/rooms')}
             >
-              Book Your Stay Now
+              View Our Rooms
             </button>
           </div>
         </div>
