@@ -1,11 +1,10 @@
+import { mongoAPI } from './mongoConfig.js';
+
 // Simple booking status
 export const BOOKING_STATUS = {
   BOOKED: 'booked',
   BLOCKED: 'blocked' // For maintenance or admin blocks
 };
-
-// Storage key for localStorage
-const BOOKINGS_STORAGE_KEY = 'lacasa_bookings';
 
 // Utility functions for date handling
 export const formatDate = (date) => {
@@ -106,158 +105,189 @@ export class Booking {
   }
 }
 
-// Booking management class
+// Booking management class with MongoDB Atlas Data API
 export class BookingManager {
   constructor() {
-    this.bookings = [];
-    this.loadFromStorage();
-  }
-
-  // Load bookings from localStorage
-  loadFromStorage() {
-    try {
-      const stored = localStorage.getItem(BOOKINGS_STORAGE_KEY);
-      if (stored) {
-        const bookingsData = JSON.parse(stored);
-        this.bookings = bookingsData.map(data => Booking.fromJSON(data));
-      }
-    } catch (error) {
-      console.error('Error loading bookings from storage:', error);
-      this.bookings = [];
-    }
-  }
-
-  // Save bookings to localStorage
-  saveToStorage() {
-    try {
-      const bookingsData = this.bookings.map(booking => booking.toJSON());
-      localStorage.setItem(BOOKINGS_STORAGE_KEY, JSON.stringify(bookingsData));
-    } catch (error) {
-      console.error('Error saving bookings to storage:', error);
-    }
+    this.mongoAPI = mongoAPI;
   }
 
   // Create new booking
-  createBooking(bookingData) {
-    const booking = new Booking(bookingData);
-    
-    // Check for conflicts
-    if (this.hasConflict(booking)) {
-      throw new Error('Booking conflicts with existing reservation');
+  async createBooking(bookingData) {
+    try {
+      const booking = new Booking(bookingData);
+      
+      // Check for conflicts
+      const hasConflict = await this.mongoAPI.checkConflicts(booking.toJSON());
+      if (hasConflict) {
+        throw new Error('Booking conflicts with existing reservation');
+      }
+      
+      const result = await this.mongoAPI.createBooking(booking.toJSON());
+      return booking;
+    } catch (error) {
+      console.error('Error creating booking:', error);
+      throw error;
     }
-    
-    this.bookings.push(booking);
-    this.saveToStorage();
-    return booking;
   }
 
   // Update existing booking
-  updateBooking(id, updates) {
-    const booking = this.getBookingById(id);
-    if (!booking) {
-      throw new Error('Booking not found');
+  async updateBooking(id, updates) {
+    try {
+      const existingBooking = await this.mongoAPI.getBookingById(id);
+      if (!existingBooking) {
+        throw new Error('Booking not found');
+      }
+      
+      // Create temporary booking with updates to check for conflicts
+      const tempBookingData = { ...existingBooking, ...updates };
+      const tempBooking = new Booking(tempBookingData);
+      
+      // Check for conflicts (exclude current booking)
+      const hasConflict = await this.mongoAPI.checkConflicts(tempBooking.toJSON(), id);
+      if (hasConflict) {
+        throw new Error('Updated booking conflicts with existing reservation');
+      }
+      
+      const result = await this.mongoAPI.updateBooking(id, updates);
+      return Booking.fromJSON({ ...existingBooking, ...updates });
+    } catch (error) {
+      console.error('Error updating booking:', error);
+      throw error;
     }
-    
-    // Create temporary booking with updates to check for conflicts
-    const tempBooking = new Booking({ ...booking.toJSON(), ...updates });
-    
-    // Check for conflicts (exclude current booking)
-    if (this.hasConflict(tempBooking, id)) {
-      throw new Error('Updated booking conflicts with existing reservation');
-    }
-    
-    booking.update(updates);
-    this.saveToStorage();
-    return booking;
   }
 
   // Delete booking
-  deleteBooking(id) {
-    const index = this.bookings.findIndex(booking => booking.id === id);
-    if (index === -1) {
-      throw new Error('Booking not found');
+  async deleteBooking(id) {
+    try {
+      const result = await this.mongoAPI.deleteBooking(id);
+      if (result.deletedCount === 0) {
+        throw new Error('Booking not found');
+      }
+      return result;
+    } catch (error) {
+      console.error('Error deleting booking:', error);
+      throw error;
     }
-    
-    this.bookings.splice(index, 1);
-    this.saveToStorage();
   }
 
   // Get booking by ID
-  getBookingById(id) {
-    return this.bookings.find(booking => booking.id === id);
+  async getBookingById(id) {
+    try {
+      const bookingData = await this.mongoAPI.getBookingById(id);
+      return bookingData ? Booking.fromJSON(bookingData) : null;
+    } catch (error) {
+      console.error('Error getting booking by ID:', error);
+      throw error;
+    }
   }
 
   // Get all bookings
-  getAllBookings() {
-    return this.bookings;
+  async getAllBookings() {
+    try {
+      const bookingsData = await this.mongoAPI.getAllBookings();
+      return bookingsData.map(data => Booking.fromJSON(data));
+    } catch (error) {
+      console.error('Error getting all bookings:', error);
+      throw error;
+    }
   }
 
   // Get bookings for a specific room
-  getBookingsByRoom(roomId) {
-    return this.bookings.filter(booking => booking.roomId === roomId);
+  async getBookingsByRoom(roomId) {
+    try {
+      const bookingsData = await this.mongoAPI.getBookingsByRoom(roomId);
+      return bookingsData.map(data => Booking.fromJSON(data));
+    } catch (error) {
+      console.error('Error getting bookings by room:', error);
+      throw error;
+    }
   }
 
   // Get bookings for a specific date range
-  getBookingsByDateRange(startDate, endDate) {
-    return this.bookings.filter(booking => 
-      isDateInRange(booking.checkIn, startDate, endDate) ||
-      isDateInRange(booking.checkOut, startDate, endDate) ||
-      (booking.checkIn <= startDate && booking.checkOut >= endDate)
-    );
+  async getBookingsByDateRange(startDate, endDate) {
+    try {
+      const bookingsData = await this.mongoAPI.getBookingsByDateRange(startDate, endDate);
+      return bookingsData.map(data => Booking.fromJSON(data));
+    } catch (error) {
+      console.error('Error getting bookings by date range:', error);
+      throw error;
+    }
   }
 
-  // Check if a booking conflicts with existing bookings
-  hasConflict(newBooking, excludeId = null) {
-    return this.bookings.some(existing => {
-      // Skip the booking we're updating
-      if (excludeId && existing.id === excludeId) {
-        return false;
-      }
-      
-      // Only check bookings for the same room
-      if (existing.roomId !== newBooking.roomId) {
-        return false;
-      }
-      
-      // Check for date overlap
-      return (
-        isDateInRange(newBooking.checkIn, existing.checkIn, existing.checkOut) ||
-        isDateInRange(newBooking.checkOut, existing.checkIn, existing.checkOut) ||
-        (newBooking.checkIn <= existing.checkIn && newBooking.checkOut >= existing.checkOut)
-      );
-    });
+  // Check if booking conflicts with existing bookings
+  async hasConflict(newBooking, excludeId = null) {
+    try {
+      return await this.mongoAPI.checkConflicts(newBooking, excludeId);
+    } catch (error) {
+      console.error('Error checking conflicts:', error);
+      throw error;
+    }
   }
 
   // Check if a specific date is available for a room
-  isDateAvailable(roomId, date) {
-    return !this.bookings.some(booking => 
-      booking.roomId === roomId &&
-      booking.coversDate(date)
-    );
+  async isDateAvailable(roomId, date) {
+    try {
+      const bookingsData = await this.mongoAPI.getBookingsByRoom(roomId);
+      const bookings = bookingsData.map(data => Booking.fromJSON(data));
+      
+      return !bookings.some(booking => booking.coversDate(date));
+    } catch (error) {
+      console.error('Error checking date availability:', error);
+      throw error;
+    }
   }
 
   // Get available dates for a room in a given month
-  getAvailableDates(roomId, year, month) {
-    const startDate = new Date(year, month - 1, 1);
-    const endDate = new Date(year, month, 0);
-    const dates = getDateRange(startDate, endDate);
-    
-    return dates.filter(date => this.isDateAvailable(roomId, date));
+  async getAvailableDates(roomId, year, month) {
+    try {
+      const startDate = new Date(year, month - 1, 1);
+      const endDate = new Date(year, month, 0);
+      const dates = getDateRange(startDate, endDate);
+      
+      const bookedBookings = await this.mongoAPI.getBookedDatesForRoom(roomId, year, month);
+      const bookedDates = new Set();
+      
+      bookedBookings.forEach(booking => {
+        const bookingObj = Booking.fromJSON(booking);
+        const bookingDates = bookingObj.getDatesRange();
+        bookingDates.forEach(date => bookedDates.add(date));
+      });
+      
+      return dates.filter(date => !bookedDates.has(date));
+    } catch (error) {
+      console.error('Error getting available dates:', error);
+      throw error;
+    }
   }
 
   // Get booked dates for a room in a given month
-  getBookedDates(roomId, year, month) {
-    const startDate = new Date(year, month - 1, 1);
-    const endDate = new Date(year, month, 0);
-    const dates = getDateRange(startDate, endDate);
-    
-    return dates.filter(date => !this.isDateAvailable(roomId, date));
+  async getBookedDates(roomId, year, month) {
+    try {
+      const bookedBookings = await this.mongoAPI.getBookedDatesForRoom(roomId, year, month);
+      const bookedDates = new Set();
+      
+      bookedBookings.forEach(booking => {
+        const bookingObj = Booking.fromJSON(booking);
+        const bookingDates = bookingObj.getDatesRange();
+        bookingDates.forEach(date => bookedDates.add(date));
+      });
+      
+      return Array.from(bookedDates);
+    } catch (error) {
+      console.error('Error getting booked dates:', error);
+      throw error;
+    }
   }
 
   // Clear all bookings (for admin)
-  clearAllBookings() {
-    this.bookings = [];
-    this.saveToStorage();
+  async clearAllBookings() {
+    try {
+      const result = await this.mongoAPI.clearAllBookings();
+      return result;
+    } catch (error) {
+      console.error('Error clearing all bookings:', error);
+      throw error;
+    }
   }
 }
 
