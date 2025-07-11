@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
+import { BookingProvider } from './context/BookingContext';
 import LanguageSelection from './pages/LanguageSelection';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
@@ -8,6 +9,7 @@ import Home from './pages/Home';
 import Rooms from './pages/Rooms';
 import RoomDetail from './pages/RoomDetail';
 import About from './pages/About';
+import Admin from './pages/Admin';
 
 function App() {
   const [showLanguageSelection, setShowLanguageSelection] = useState(true);
@@ -45,15 +47,17 @@ function App() {
 
   return (
     <LanguageProvider>
-      <div className="App">
-        {showLanguageSelection ? (
-          <LanguageSelection onLanguageSelected={handleLanguageSelected} />
-        ) : (
-          <Router>
-            <MainApp />
-          </Router>
-        )}
-      </div>
+      <BookingProvider>
+        <div className="App">
+          {showLanguageSelection ? (
+            <LanguageSelection onLanguageSelected={handleLanguageSelected} />
+          ) : (
+            <Router>
+              <MainApp />
+            </Router>
+          )}
+        </div>
+      </BookingProvider>
     </LanguageProvider>
   );
 }
@@ -69,6 +73,7 @@ const MainApp = () => {
           <Route path="/rooms" element={<Rooms />} />
           <Route path="/rooms/:roomId" element={<RoomDetail />} />
           <Route path="/about" element={<About />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
       <Footer />
