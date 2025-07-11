@@ -11,14 +11,11 @@ export const roomAmenities = {
   WIFI: { id: 'wifi', name: 'Free Wi-Fi', icon: '📶' },
   AC: { id: 'ac', name: 'Air Conditioning', icon: '❄️' },
   TV: { id: 'tv', name: 'Smart TV', icon: '📺' },
-  MINIBAR: { id: 'minibar', name: 'Minibar', icon: '🍾' },
   SAFE: { id: 'safe', name: 'Safe', icon: '🔒' },
   
   // Bathroom amenities
   BATHROOM_LUXURY: { id: 'bathroom_luxury', name: 'Luxury Bathroom', icon: '🛁' },
-  MARBLE_BATH: { id: 'marble_bath', name: 'Marble Bathroom', icon: '🛁' },
   SEPARATE_SHOWER: { id: 'separate_shower', name: 'Separate Shower', icon: '🚿' },
-  BATHROBE: { id: 'bathrobe', name: 'Bathrobe & Slippers', icon: '🥼' },
   
   // Room features
   CITY_VIEW: { id: 'city_view', name: 'City View', icon: '🏙️' },
@@ -33,20 +30,13 @@ export const roomAmenities = {
   
   // Work amenities
   DESK: { id: 'desk', name: 'Work Desk', icon: '💻' },
-  BUSINESS_CENTER: { id: 'business_center', name: 'Business Center Access', icon: '🏢' },
-  PRINTER: { id: 'printer', name: 'In-room Printer', icon: '🖨️' },
   
   // Luxury amenities
-  BUTLER_SERVICE: { id: 'butler_service', name: 'Butler Service', icon: '👔' },
-  CONCIERGE: { id: 'concierge', name: 'Concierge Service', icon: '🎩' },
   ROOM_SERVICE: { id: 'room_service', name: '24/7 Room Service', icon: '🍽️' },
-  PREMIUM_BAR: { id: 'premium_bar', name: 'Premium Bar', icon: '🥂' },
   
   // Additional services
   BREAKFAST: { id: 'breakfast', name: 'Breakfast Included', icon: '🍳' },
-  SPA_ACCESS: { id: 'spa_access', name: 'Spa Access', icon: '🧘' },
   GYM_ACCESS: { id: 'gym_access', name: 'Gym Access', icon: '🏋️' },
-  POOL_ACCESS: { id: 'pool_access', name: 'Pool Access', icon: '🏊' }
 };
 
 export const rooms = [
@@ -85,18 +75,11 @@ export const rooms = [
       roomAmenities.WIFI,
       roomAmenities.TV,
       roomAmenities.DESK,
-      roomAmenities.KING_BED,
       roomAmenities.SAFE,
       roomAmenities.BATHROOM_LUXURY,
       roomAmenities.BREAKFAST
     ],
     
-    // Availability
-    availability: {
-      available: true,
-      totalRooms: 15,
-      availableRooms: 8
-    },
     
     // Room features
     features: {
@@ -136,24 +119,12 @@ export const rooms = [
     
     amenities: [
       roomAmenities.WIFI,
-      roomAmenities.AC,
       roomAmenities.TV,
-      roomAmenities.MINIBAR,
-      roomAmenities.GARDEN_VIEW,
-      roomAmenities.QUEEN_BED,
-      roomAmenities.SAFE,
-      roomAmenities.MARBLE_BATH,
       roomAmenities.DESK,
       roomAmenities.BREAKFAST,
-      roomAmenities.SPA_ACCESS,
-      roomAmenities.GYM_ACCESS
     ],
     
-    availability: {
-      available: true,
-      totalRooms: 12,
-      availableRooms: 5
-    },
+ 
     
     features: {
       smokingAllowed: false,
@@ -192,29 +163,14 @@ export const rooms = [
     
     amenities: [
       roomAmenities.WIFI,
-      roomAmenities.AC,
       roomAmenities.TV,
-      roomAmenities.MINIBAR,
       roomAmenities.GARDEN_VIEW,
-      roomAmenities.KING_BED,
-      roomAmenities.SAFE,
-      roomAmenities.MARBLE_BATH,
-      roomAmenities.SEPARATE_SHOWER,
-      roomAmenities.BATHROBE,
-      roomAmenities.DESK,
-      roomAmenities.ROOM_SERVICE,
       roomAmenities.BREAKFAST,
-      roomAmenities.SPA_ACCESS,
-      roomAmenities.GYM_ACCESS,
-      roomAmenities.POOL_ACCESS
+      roomAmenities.SEPARATE_SHOWER,
+      roomAmenities.SAFE,
     ],
     
-    availability: {
-      available: true,
-      totalRooms: 8,
-      availableRooms: 3
-    },
-    
+
     features: {
       smokingAllowed: false,
       petFriendly: true,
@@ -253,10 +209,7 @@ export const rooms = [
     amenities: [
       roomAmenities.WIFI,
       roomAmenities.TV,
-      roomAmenities.MINIBAR,
-      roomAmenities.CITY_VIEW,
       roomAmenities.BALCONY,
-      roomAmenities.KING_BED,
       roomAmenities.SAFE,
       roomAmenities.BREAKFAST
     ],
@@ -305,10 +258,7 @@ export const rooms = [
     amenities: [
       roomAmenities.WIFI,
       roomAmenities.TV,
-      roomAmenities.MINIBAR,
-      roomAmenities.CITY_VIEW,
       roomAmenities.BALCONY,
-      roomAmenities.KING_BED,
       roomAmenities.SAFE,
       roomAmenities.BREAKFAST
     ],

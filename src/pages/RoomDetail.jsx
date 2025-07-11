@@ -138,14 +138,8 @@ const RoomDetail = () => {
                     </p>
                     <p className="text-sm text-secondary-600">per {room.pricing.period}</p>
                   </div>
-                  <div className="text-right">
-                    <p className="text-sm text-secondary-600">Availability</p>
-                    <p className="font-semibold text-green-600">
-                      {room.availability.availableRooms} rooms available
-                    </p>
-                  </div>
+
                 </div>
-                
                 <button className="btn-primary w-full">
                   Book Now
                 </button>
