@@ -73,7 +73,7 @@ export const getAmenityById = (id) => {
 
 export const getFeaturedAmenities = () => {
   return hotelAmenities.filter(amenity => 
-    ['fitness', 'restaurant', 'wifi', ].includes(amenity.id)
+    ['pet_services', 'restaurant', 'wifi', ].includes(amenity.id)
   );
 };
 

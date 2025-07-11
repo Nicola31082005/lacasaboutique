@@ -5,15 +5,15 @@ export const hotelInfo = {
   description: "Experience luxury and comfort in the heart of the city. Our boutique hotel offers personalized service and elegant accommodations for the discerning traveler.",
   
   contact: {
-    address: "123 Luxury Street, Kostinbrod, Bulgaria",
+    address: "кв. Захари Зограф, Охрид 5, 2230 Kostinbrod",
     phone: "+359 2 123 4567",
     email: "info@lacasaboutique.com",
     website: "www.lacasaboutique.com",
     
     // Location coordinates
     location: {
-      lat: 42.6977,
-      lng: 23.3219,
+      lat: 42.809360586199276,
+      lng: 23.200231472461372,
       city: "Kostinbrod",
       country: "Bulgaria",
       zipCode: "1000"
