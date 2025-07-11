@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Thumbs } from 'swiper/modules';
 import { useLanguage } from '../context/LanguageContext';
 import { getRoomById } from '../data/rooms';
-import RoomCalendar from '../components/common/RoomCalendar';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -184,23 +183,8 @@ const RoomDetail = () => {
         </div>
       </section>
 
-      {/* Room Availability Calendar */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Room Availability</h2>
-            <p className="text-secondary-600">
-              Check availability and view booking information for this room
-            </p>
-          </div>
-          
-          <RoomCalendar 
-            roomId={room.id}
-            roomName={room.name}
-            showBookingDetails={true}
-          />
-        </div>
-      </section>
+      {/* Pricing Information */}
+      
 
       {/* Back to Rooms Button */}
       <section className="section-padding bg-secondary-50">

@@ -12,7 +12,6 @@ const Header = () => {
     { key: 'home', label: t('nav.home'), path: '/' },
     { key: 'rooms', label: t('nav.rooms'), path: '/rooms' },
     { key: 'about', label: t('nav.about'), path: '/about' },
-    { key: 'admin', label: 'Admin', path: '/admin', isAdmin: true },
   ];
 
   const handleLanguageToggle = () => {
@@ -47,11 +46,7 @@ const Header = () => {
                 key={item.key}
                 to={item.path}
                 className={`font-medium transition-colors duration-200 ${
-                  item.isAdmin
-                    ? currentPage === item.path
-                      ? 'text-orange-600 border-b-2 border-orange-600 pb-1'
-                      : 'text-gray-500 hover:text-orange-600 text-sm'
-                    : currentPage === item.path
+                  currentPage === item.path
                     ? 'text-primary-600 border-b-2 border-primary-600 pb-1'
                     : 'text-secondary-700 hover:text-primary-600'
                 }`}
@@ -112,11 +107,7 @@ const Header = () => {
                   to={item.path}
                   onClick={handleMobileMenuClose}
                   className={`block w-full text-left px-4 py-3 font-medium transition-colors duration-200 ${
-                    item.isAdmin
-                      ? currentPage === item.path
-                        ? 'text-orange-600 bg-orange-50 border-l-4 border-orange-600'
-                        : 'text-gray-500 hover:text-orange-600 hover:bg-orange-50'
-                      : currentPage === item.path
+                    currentPage === item.path
                       ? 'text-primary-600 bg-primary-50 border-l-4 border-primary-600'
                       : 'text-secondary-700 hover:text-primary-600 hover:bg-secondary-50'
                   }`}
