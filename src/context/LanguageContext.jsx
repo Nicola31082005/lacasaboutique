@@ -79,7 +79,7 @@ const translations = {
       },
       team: {
         title: 'Our Team',
-        description: 'Our dedicated team of professionals is committed to making your stay unforgettable.'
+        description: 'Our team is committed to making your stay unforgettable.'
       }
     },
     

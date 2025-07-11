@@ -188,13 +188,6 @@ const LocationMap = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-3">
-                  <span className="text-2xl">🚇</span>
-                  <div>
-                    <p className="font-medium text-secondary-900">By Metro</p>
-                    <p className="text-secondary-600 text-sm">{hotelInfo.transportation.metro.walkTime} walk from {hotelInfo.transportation.metro.station}</p>
-                  </div>
-                </div>
 
                 <div className="flex items-center space-x-3">
                   <span className="text-2xl">✈️</span>

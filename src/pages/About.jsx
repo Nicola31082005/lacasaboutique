@@ -15,17 +15,14 @@ const About = () => {
     {
       name: 'Maria Petrova',
       role: 'Hotel Manager',
-      description: 'Leading our team with 15 years of hospitality experience.',
     },
     {
       name: 'Georgi Ivanov',
       role: 'Head Chef',
-      description: 'Creating culinary masterpieces with local and international flavors.',
     },
     {
       name: 'Elena Dimitrova',
       role: 'Guest Relations',
-      description: 'Ensuring every guest has an unforgettable experience.',
     },
   ];
 
@@ -56,9 +53,7 @@ const About = () => {
               <p className="text-secondary-600 leading-relaxed mb-6">
                 {hotelInfo.description}
               </p>
-              <p className="text-secondary-600 leading-relaxed">
-                Established in {hotelInfo.features.established}, our {hotelInfo.features.rating}-star hotel features {hotelInfo.features.totalRooms} rooms and {hotelInfo.features.totalSuites} suites across {hotelInfo.features.floors} floors. We are certified for {hotelInfo.features.certifications.join(', ')}.
-              </p>
+              
             </div>
             <div className="bg-primary-100 h-96 rounded-lg flex items-center justify-center">
               <span className="text-primary-600 font-semibold">Hotel Story Image</span>
