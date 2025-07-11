@@ -4,7 +4,7 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
-import { getAvailableRooms } from '../../data/rooms';
+import { getRooms } from '../../data/rooms';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -16,7 +16,7 @@ const RoomCards = () => {
   const navigate = useNavigate();
 
   // Get available rooms from static data
-  const rooms = getAvailableRooms();
+  const rooms = getRooms();
 
   return (
     <div className="relative px-4 md:px-8">

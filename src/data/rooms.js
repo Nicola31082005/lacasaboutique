@@ -263,11 +263,7 @@ export const rooms = [
       roomAmenities.BREAKFAST
     ],
     
-    availability: {
-      available: true,
-      totalRooms: 2,
-      availableRooms: 2
-    },
+  
     
     features: {
       smokingAllowed: false,
@@ -283,8 +279,9 @@ export const getRoomsByType = (type) => {
   return rooms.filter(room => room.type === type);
 };
 
-export const getAvailableRooms = () => {
-  return rooms.filter(room => room.availability.available);
+
+export const getRooms = () => {
+  return rooms;
 };
 
 export const getRoomById = (id) => {
