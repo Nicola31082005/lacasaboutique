@@ -95,37 +95,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="mb-4 text-secondary-900">
-              {t('about.team.title')}
-            </h2>
-            <p className="text-secondary-600 text-lg">
-              {t('about.team.description')}
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="card text-center">
-                <div className="p-8">
-                  <div className="w-24 h-24 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-primary-600 font-semibold text-lg">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </span>
-                  </div>
-                  <h3 className="mb-2 text-secondary-900">{member.name}</h3>
-                  <p className="text-primary-600 font-medium mb-3">{member.role}</p>
-                  <p className="text-secondary-600 text-sm">{member.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+     
       {/* Call to Action Section */}
       <section className="section-padding bg-primary-600 text-white">
         <div className="container-custom">
