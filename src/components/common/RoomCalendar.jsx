@@ -9,75 +9,50 @@ const RoomCalendar = ({ roomId, roomName, onDateSelect, selectedDates = [], show
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedRange, setSelectedRange] = useState({ start: null, end: null });
   const [hoveredDate, setHoveredDate] = useState(null);
-  const [monthData, setMonthData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [roomBookings, setRoomBookings] = useState([]);
 
-  // Load room bookings and availability data
-  useEffect(() => {
-    const loadMonthData = async () => {
-      try {
-        setLoading(true);
-        
-        const year = currentMonth.getFullYear();
-        const month = currentMonth.getMonth();
-        const firstDay = new Date(year, month, 1);
-        const lastDay = new Date(year, month + 1, 0);
-        const startDate = new Date(firstDay);
-        startDate.setDate(startDate.getDate() - firstDay.getDay());
-        
-        // Get room bookings for this month
-        const bookings = await getBookingsByRoom(roomId);
-        setRoomBookings(bookings);
-        
-        const days = [];
-        
-        for (let i = 0; i < 42; i++) {
-          const date = new Date(startDate);
-          date.setDate(startDate.getDate() + i);
-          
-          const dateStr = date.toISOString().split('T')[0];
-          const isCurrentMonth = date.getMonth() === month;
-          const isToday = dateStr === new Date().toISOString().split('T')[0];
-          const isPast = date < new Date().setHours(0, 0, 0, 0);
-          
-          // Check availability for this date
-          let isAvailable = false;
-          try {
-            isAvailable = await isDateAvailable(roomId, dateStr);
-          } catch (error) {
-            console.error('Error checking availability:', error);
-          }
-          
-          // Find booking for this date
-          const dayBooking = bookings.find(booking => 
-            booking.coversDate(dateStr)
-          );
-          
-          days.push({
-            date,
-            dateStr,
-            day: date.getDate(),
-            isCurrentMonth,
-            isToday,
-            isAvailable: isAvailable && !isPast,
-            isPast,
-            booking: dayBooking,
-            isSelected: selectedDates.includes(dateStr),
-            isInRange: selectedRange.start && selectedRange.end && 
-                       dateStr >= selectedRange.start && dateStr <= selectedRange.end
-          });
-        }
-        
-        setMonthData(days);
-      } catch (error) {
-        console.error('Error loading month data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadMonthData();
+  // Get month data
+  const monthData = useMemo(() => {
+    const year = currentMonth.getFullYear();
+    const month = currentMonth.getMonth();
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    const startDate = new Date(firstDay);
+    startDate.setDate(startDate.getDate() - firstDay.getDay());
+    
+    const days = [];
+    const roomBookings = getBookingsByRoom(roomId);
+    
+    for (let i = 0; i < 42; i++) {
+      const date = new Date(startDate);
+      date.setDate(startDate.getDate() + i);
+      
+      const dateStr = date.toISOString().split('T')[0];
+      const isCurrentMonth = date.getMonth() === month;
+      const isToday = dateStr === new Date().toISOString().split('T')[0];
+      const isAvailable = isDateAvailable(roomId, dateStr);
+      const isPast = date < new Date().setHours(0, 0, 0, 0);
+      
+      // Find booking for this date
+      const dayBooking = roomBookings.find(booking => 
+        booking.coversDate(dateStr)
+      );
+      
+      days.push({
+        date,
+        dateStr,
+        day: date.getDate(),
+        isCurrentMonth,
+        isToday,
+        isAvailable: isAvailable && !isPast,
+        isPast,
+        booking: dayBooking,
+        isSelected: selectedDates.includes(dateStr),
+        isInRange: selectedRange.start && selectedRange.end && 
+                   dateStr >= selectedRange.start && dateStr <= selectedRange.end
+      });
+    }
+    
+    return days;
   }, [currentMonth, roomId, getBookingsByRoom, isDateAvailable, selectedDates, selectedRange]);
 
   // Month navigation
@@ -174,17 +149,6 @@ const RoomCalendar = ({ roomId, roomName, onDateSelect, selectedDates = [], show
   ];
 
   const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-  if (loading) {
-    return (
-      <div className="bg-white rounded-lg shadow-lg p-6">
-        <div className="flex items-center justify-center h-64">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
-          <span className="ml-2 text-gray-600">Loading calendar...</span>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-6">

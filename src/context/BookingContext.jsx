@@ -30,8 +30,8 @@ export const BookingProvider = ({ children }) => {
       setLoading(true);
       setError(null);
       
-      // Now using MongoDB Atlas Data API - this is async
-      const allBookings = await bookingManager.getAllBookings();
+      // Since we're using localStorage, this is synchronous
+      const allBookings = bookingManager.getAllBookings();
       setBookings(allBookings);
     } catch (err) {
       setError(err.message);
@@ -45,7 +45,7 @@ export const BookingProvider = ({ children }) => {
   const createBooking = useCallback(async (bookingData) => {
     try {
       setError(null);
-      const newBooking = await bookingManager.createBooking(bookingData);
+      const newBooking = bookingManager.createBooking(bookingData);
       setBookings(prev => [...prev, newBooking]);
       return newBooking;
     } catch (err) {
@@ -58,7 +58,7 @@ export const BookingProvider = ({ children }) => {
   const updateBooking = useCallback(async (id, updates) => {
     try {
       setError(null);
-      const updatedBooking = await bookingManager.updateBooking(id, updates);
+      const updatedBooking = bookingManager.updateBooking(id, updates);
       setBookings(prev => prev.map(booking => 
         booking.id === id ? updatedBooking : booking
       ));
@@ -73,7 +73,7 @@ export const BookingProvider = ({ children }) => {
   const deleteBooking = useCallback(async (id) => {
     try {
       setError(null);
-      await bookingManager.deleteBooking(id);
+      bookingManager.deleteBooking(id);
       setBookings(prev => prev.filter(booking => booking.id !== id));
     } catch (err) {
       setError(err.message);
@@ -81,83 +81,51 @@ export const BookingProvider = ({ children }) => {
     }
   }, []);
 
+
+
   // Get bookings for a specific room
-  const getBookingsByRoom = useCallback(async (roomId) => {
-    try {
-      const roomBookings = await bookingManager.getBookingsByRoom(roomId);
-      return roomBookings;
-    } catch (err) {
-      console.error('Error getting bookings by room:', err);
-      throw err;
-    }
-  }, []);
+  const getBookingsByRoom = useCallback((roomId) => {
+    return bookings.filter(booking => booking.roomId === roomId);
+  }, [bookings]);
 
   // Get bookings for a specific date range
-  const getBookingsByDateRange = useCallback(async (startDate, endDate) => {
-    try {
-      const dateRangeBookings = await bookingManager.getBookingsByDateRange(startDate, endDate);
-      return dateRangeBookings;
-    } catch (err) {
-      console.error('Error getting bookings by date range:', err);
-      throw err;
-    }
+  const getBookingsByDateRange = useCallback((startDate, endDate) => {
+    return bookingManager.getBookingsByDateRange(startDate, endDate);
   }, []);
 
   // Check if a date is available for a room
-  const isDateAvailable = useCallback(async (roomId, date) => {
-    try {
-      const available = await bookingManager.isDateAvailable(roomId, date);
-      return available;
-    } catch (err) {
-      console.error('Error checking date availability:', err);
-      throw err;
-    }
+  const isDateAvailable = useCallback((roomId, date) => {
+    return bookingManager.isDateAvailable(roomId, date);
   }, []);
 
   // Get available dates for a room in a month
-  const getAvailableDates = useCallback(async (roomId, year, month) => {
-    try {
-      const availableDates = await bookingManager.getAvailableDates(roomId, year, month);
-      return availableDates;
-    } catch (err) {
-      console.error('Error getting available dates:', err);
-      throw err;
-    }
+  const getAvailableDates = useCallback((roomId, year, month) => {
+    return bookingManager.getAvailableDates(roomId, year, month);
   }, []);
 
   // Get booked dates for a room in a month
-  const getBookedDates = useCallback(async (roomId, year, month) => {
-    try {
-      const bookedDates = await bookingManager.getBookedDates(roomId, year, month);
-      return bookedDates;
-    } catch (err) {
-      console.error('Error getting booked dates:', err);
-      throw err;
-    }
+  const getBookedDates = useCallback((roomId, year, month) => {
+    return bookingManager.getBookedDates(roomId, year, month);
   }, []);
 
   // Check for booking conflicts
-  const hasConflict = useCallback(async (bookingData, excludeId = null) => {
-    try {
-      const conflict = await bookingManager.hasConflict(bookingData, excludeId);
-      return conflict;
-    } catch (err) {
-      console.error('Error checking conflicts:', err);
-      throw err;
-    }
+  const hasConflict = useCallback((bookingData, excludeId = null) => {
+    return bookingManager.hasConflict(bookingData, excludeId);
   }, []);
 
   // Clear all bookings (for admin)
   const clearAllBookings = useCallback(async () => {
     try {
       setError(null);
-      await bookingManager.clearAllBookings();
+      bookingManager.clearAllBookings();
       setBookings([]);
     } catch (err) {
       setError(err.message);
       throw err;
     }
   }, []);
+
+
 
   // Context value
   const value = {
@@ -172,7 +140,7 @@ export const BookingProvider = ({ children }) => {
     updateBooking,
     deleteBooking,
     
-    // Queries (now all async)
+    // Queries
     getBookingsByRoom,
     getBookingsByDateRange,
     isDateAvailable,
