@@ -158,9 +158,11 @@ const HeroCarousel = () => {
         transition={{ duration: 0.8, delay: 0.5 }}
       >
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-primary-600 rounded-full flex items-center justify-center">
-            <span className="text-white font-bold text-sm">LC</span>
-          </div>
+          <img 
+            src="/logo.webp" 
+            alt="La Casa Boutique Logo" 
+            className="w-8 h-8 object-contain"
+          />
           <div>
             <p className="font-elegant text-sm font-semibold">La Casa Boutique - GF</p>
             <p className="text-xs text-white/80">Luxury Hotel Experience</p>

@@ -18,15 +18,11 @@ L.Icon.Default.mergeOptions({
 
 // Custom hotel marker icon
 const hotelIcon = new L.Icon({
-  iconUrl: 'data:image/svg+xml;base64,' + btoa(`
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-      <circle cx="16" cy="16" r="15" fill="#d97706" stroke="#fff" stroke-width="2"/>
-      <text x="16" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">LC</text>
-    </svg>
-  `),
-  iconSize: [32, 32],
-  iconAnchor: [16, 32],
-  popupAnchor: [0, -32],
+  iconUrl: '/logo.webp',
+  iconSize: [40, 40],
+  iconAnchor: [20, 40],
+  popupAnchor: [0, -40],
+  className: 'hotel-marker-icon'
 });
 
 const LocationMap = () => {

@@ -30,9 +30,11 @@ function App() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg animate-pulse">
-            <span className="text-white text-xl font-bold">LC</span>
-          </div>
+          <img 
+            src="/logo.webp" 
+            alt="La Casa Boutique Logo" 
+            className="w-16 h-16 object-contain mx-auto mb-4 animate-pulse"
+          />
           <div className="flex space-x-2 justify-center">
             <div className="w-3 h-3 bg-primary-600 rounded-full animate-bounce"></div>
             <div className="w-3 h-3 bg-primary-600 rounded-full animate-bounce animation-delay-300"></div>

@@ -50,9 +50,11 @@ const LanguageSelection = ({ onLanguageSelected }) => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-8"
         >
-          <div className="w-20 h-20 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-            <span className="text-white text-2xl font-bold">LC</span>
-          </div>
+          <img 
+            src="/logo.webp" 
+            alt="La Casa Boutique Logo" 
+            className="w-20 h-20 object-contain mx-auto mb-4 shadow-lg"
+          />
           <h1 className="text-3xl md:text-4xl font-elegant text-secondary-900 mb-2">
             La Casa Boutique - GF
           </h1>

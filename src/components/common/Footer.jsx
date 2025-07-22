@@ -39,9 +39,11 @@ const Footer = () => {
           {/* Hotel Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold">LC</span>
-              </div>
+              <img 
+                src="/logo.webp" 
+                alt="La Casa Boutique Logo" 
+                className="w-12 h-12 object-contain"
+              />
               <div>
                 <h3 className="text-xl font-elegant text-white">
                   La Casa Boutique - GF
