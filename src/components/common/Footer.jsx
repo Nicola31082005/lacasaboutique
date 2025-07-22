@@ -41,7 +41,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <img 
-                src="/logo.webp" 
+                src="/logo.png" 
                 alt="La Casa Boutique Logo" 
                 className="w-12 h-12 object-contain"
               />

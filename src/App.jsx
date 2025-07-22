@@ -31,7 +31,7 @@ function App() {
       <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 flex items-center justify-center">
         <div className="text-center">
           <img 
-            src="/logo.webp" 
+            src="/logo.png" 
             alt="La Casa Boutique Logo" 
             className="w-16 h-16 object-contain mx-auto mb-4 animate-pulse"
           />

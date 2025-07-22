@@ -18,7 +18,7 @@ L.Icon.Default.mergeOptions({
 
 // Custom hotel marker icon
 const hotelIcon = new L.Icon({
-  iconUrl: '/logo.webp',
+  iconUrl: '/logo.png',
   iconSize: [40, 40],
   iconAnchor: [20, 40],
   popupAnchor: [0, -40],

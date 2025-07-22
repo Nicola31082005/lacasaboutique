@@ -159,7 +159,7 @@ const HeroCarousel = () => {
       >
         <div className="flex items-center space-x-3">
           <img 
-            src="/logo.webp" 
+            src="/logo.png" 
             alt="La Casa Boutique Logo" 
             className="w-8 h-8 object-contain"
           />

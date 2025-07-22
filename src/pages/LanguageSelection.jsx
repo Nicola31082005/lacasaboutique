@@ -51,7 +51,7 @@ const LanguageSelection = ({ onLanguageSelected }) => {
           className="mb-8"
         >
           <img 
-            src="/logo.webp" 
+            src="/logo.png" 
             alt="La Casa Boutique Logo" 
             className="w-20 h-20 object-contain mx-auto mb-4 shadow-lg"
           />
