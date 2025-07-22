@@ -26,13 +26,13 @@ const Header = () => {
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 cursor-pointer">
             <img 
               src="/logo.png" 
               alt="La Casa Boutique Logo" 
-              className="w-10 h-10 object-contain"
+              className="w-26 h-20 object-contain"
             />
             <div className="hidden md:block">
               <h1 className="text-xl font-elegant text-secondary-900">

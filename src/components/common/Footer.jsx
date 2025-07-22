@@ -43,7 +43,7 @@ const Footer = () => {
               <img 
                 src="/logo.png" 
                 alt="La Casa Boutique Logo" 
-                className="w-12 h-12 object-contain"
+                className="w-20 h-16 object-contain"
               />
               <div>
                 <h3 className="text-xl font-elegant text-white">
