@@ -92,7 +92,7 @@ const translations = {
         email: 'Email'
       },
       followUs: 'Follow Us',
-      copyright: '© 2024 La Casa Boutique - GF. All rights reserved.'
+      copyright: '© 2025 La Casa Boutique - GF. All rights reserved.'
     },
     
     // Common
@@ -123,7 +123,7 @@ const translations = {
     
     // Language Selection Page
     languageSelection: {
-      title: 'Добре дошли в Ла Каза Бутик - ГФ',
+      title: 'Добре дошли в La Casa Boutique - GF',
       subtitle: 'Моля, изберете предпочитания от вас език',
       english: 'Английски',
       bulgarian: 'Български',
@@ -133,13 +133,13 @@ const translations = {
     // Home Page
     home: {
       hero: {
-        title: 'Добре дошли в Ла Каза Бутик - ГФ',
+        title: 'Добре дошли в La Casa Boutique - GF',
         subtitle: 'Насладете се на лукс и комфорт в сърцето на града',
         cta: 'Резервирайте вашия престой'
       },
       intro: {
         title: 'За нашия хотел',
-        description: 'Ла Каза Бутик - ГФ предлага незабравимо преживяване с елегантни помещения, изключително обслужване и отлично местоположение. Открийте перфектното съчетание от комфорт и изтънченост.'
+        description: 'La Casa Boutique - GF предлага незабравимо преживяване с елегантни помещения, изключително обслужване и отлично местоположение. Открийте перфектното съчетание от комфорт и изтънченост.'
       },
       rooms: {
         title: 'Нашите стаи',
@@ -173,10 +173,10 @@ const translations = {
     
     // About Page
     about: {
-      title: 'За Ла Каза Бутик - ГФ',
+      title: 'За La Casa Boutique - GF',
       story: {
         title: 'Нашата история',
-        description: 'Основан с страст към гостоприемството и лукса, Ла Каза Бутик - ГФ предоставя изключителни преживявания за нашите гости. Нашата отдаденост към съвършенството и вниманието към детайлите ни правят предпочитана дестинация.'
+        description: 'Основан с страст към гостоприемството и лукса, La Casa Boutique - GF предоставя изключителни преживявания за нашите гости. Нашата отдаденост към съвършенството и вниманието към детайлите ни правят предпочитана дестинация.'
       },
       amenities: {
         title: 'Удобства',
@@ -202,7 +202,7 @@ const translations = {
         email: 'Имейл'
       },
       followUs: 'Следете ни',
-      copyright: '© 2024 Ла Каза Бутик - ГФ. Всички права запазени.'
+      copyright: '© 2025 La Casa Boutique - GF. Всички права запазени.'
     },
     
     // Common

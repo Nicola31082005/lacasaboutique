@@ -5,18 +5,20 @@ export const hotelInfo = {
   description: "Experience luxury and comfort in the heart of the city. Our boutique hotel offers personalized service and elegant accommodations for the discerning traveler.",
   
   contact: {
-    address: "кв. Захари Зограф, Охрид 5, 2230 Kostinbrod",
-    phone: "+359 2 123 4567",
-    email: "info@lacasaboutique.com",
-    website: "www.lacasaboutique.com",
+    address: "Охрид 5, Костинброд 2230",
+    phone: "0888771268",
+    phoneSecondary: "0888774068", 
+    phoneThird: "0886871268",
+    email: "reservations@lacasaboutique-gf.com",
+    website: "www.lacasaboutique-gf.com",
     
-    // Location coordinates
+    // Location coordinates for Kostinbrod
     location: {
       lat: 42.809360586199276,
       lng: 23.200231472461372,
-      city: "Kostinbrod",
-      country: "Bulgaria",
-      zipCode: "1000"
+      city: "Костинброд",
+      country: "България",
+      zipCode: "2230"
     }
   },
   
@@ -42,8 +44,8 @@ export const hotelInfo = {
   
   // Hotel features
   features: {
-    totalRooms: 10,
-    totalSuites: 10,
+    totalRooms: 6,
+    totalSuites: 6,
     floors: 1,
     established: 2025,
     rating: 5,
@@ -52,14 +54,14 @@ export const hotelInfo = {
   // Transportation
   transportation: {
     airport: {
-      distance: "12 km",
-      time: "30 min",
+      distance: "20 km",
+      time: "25 min",
       methods: ["Taxi", "Car"]
     },
     parking: {
       available: true,
       type: "Free valet parking",
-      spaces: 60
+      spaces: 12
     }
   },
   

@@ -35,7 +35,7 @@ const LocationMap = () => {
     lng: hotelInfo.contact.location.lng,
     name: hotelInfo.name,
     address: hotelInfo.contact.address,
-    phone: hotelInfo.contact.phone,
+    phone: `${hotelInfo.contact.phone} / ${hotelInfo.contact.phoneSecondary} / ${hotelInfo.contact.phoneThird}`,
     email: hotelInfo.contact.email
   };
 

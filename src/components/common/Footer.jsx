@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
+import hotelInfo from '../../data/hotelInfo';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -17,17 +18,17 @@ const Footer = () => {
     { 
       type: 'address', 
       label: t('footer.contact.address'), 
-      value: '123 Luxury Street, Sofia, Bulgaria' 
+      value: hotelInfo.contact.address
     },
     { 
       type: 'phone', 
       label: t('footer.contact.phone'), 
-      value: '+359 2 123 4567' 
+      value: `${hotelInfo.contact.phone} / ${hotelInfo.contact.phoneSecondary} / ${hotelInfo.contact.phoneThird}`
     },
     { 
       type: 'email', 
       label: t('footer.contact.email'), 
-      value: 'info@lacasaboutique.com' 
+      value: hotelInfo.contact.email
     },
   ];
 
