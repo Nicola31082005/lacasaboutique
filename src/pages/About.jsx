@@ -51,7 +51,7 @@ const About = () => {
                 {t('about.story.title')}
               </h2>
               <p className="text-secondary-600 leading-relaxed mb-6">
-                {hotelInfo.description}
+                {t('about.story.description')}
               </p>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">

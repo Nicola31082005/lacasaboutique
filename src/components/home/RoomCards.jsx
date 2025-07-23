@@ -12,7 +12,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const RoomCards = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const navigate = useNavigate();
 
   // Get available rooms from static data
@@ -71,7 +71,7 @@ const RoomCards = () => {
               <div className="relative h-64 overflow-hidden">
                 <img
                   src={room.images[0]}
-                  alt={room.name}
+                  alt={language === 'en' ? room.nameEn : room.name}
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
@@ -85,11 +85,11 @@ const RoomCards = () => {
               {/* Room Details */}
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="mb-3 text-secondary-900 text-xl font-semibold">
-                  {room.name}
+                  {language === 'en' ? room.nameEn : room.name}
                 </h3>
                 
                 <p className="text-secondary-600 mb-4 text-sm leading-relaxed h-12 overflow-hidden">
-                  {room.description}
+                  {language === 'en' ? room.descriptionEn : room.description}
                 </p>
 
                 {/* Room Info */}
@@ -108,9 +108,9 @@ const RoomCards = () => {
                       <span
                         key={amenityIndex}
                         className="px-2 py-1 bg-primary-50 text-primary-700 rounded text-xs font-medium"
-                        title={amenity.name}
+                        title={language === 'en' ? (amenity.nameEn || amenity.name) : amenity.name}
                       >
-                        {amenity.icon} {amenity.name}
+                        {amenity.icon} {language === 'en' ? (amenity.nameEn || amenity.name) : amenity.name}
                       </span>
                     ))}
                     {room.amenities.length > 6 && (

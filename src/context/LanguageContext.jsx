@@ -23,13 +23,13 @@ const translations = {
     // Home Page
     home: {
       hero: {
-        title: 'Welcome to La Casa Boutique - GF',
-        subtitle: 'Experience luxury and comfort in the heart of the city',
+        title: 'Welcome to La Casa Boutique',
+        subtitle: 'Timeless Aesthetics',
         cta: 'Book Your Stay'
       },
       intro: {
         title: 'About Our Hotel',
-        description: 'La Casa Boutique - GF offers an unforgettable experience with elegant accommodations, exceptional service, and prime location. Discover the perfect blend of comfort and sophistication.'
+        description: 'Welcome to a world of elegance and solitude, just minutes away from Sofia. La Casa Boutique embodies a sense of comfort and precision, wrapped in classic tones and baroque accents. Each room is individually designed with great attention to detail and furnished with handcrafted Italian pieces. Whether you\'re seeking a romantic getaway, a quiet retreat, or a brief escape from the everyday rhythm, we will welcome you with warmth and care for your every need—creating a presence that lingers long after your stay.'
       },
       rooms: {
         title: 'Our Rooms',
@@ -63,10 +63,10 @@ const translations = {
     
     // About Page
     about: {
-      title: 'About La Casa Boutique - GF',
+      title: 'About La Casa Boutique',
       story: {
         title: 'Our Story',
-        description: 'Founded with a passion for hospitality and luxury, La Casa Boutique - GF has been providing exceptional experiences for our guests. Our commitment to excellence and attention to detail make us a premier destination.'
+        description: 'La Casa Boutique is a boutique guesthouse located in the center of Kostinbrod. It is a natural continuation of the Gerasimov family\'s long-standing dedication to quality, coziness, and detail. At its core stands the experience and prestige gained over the years with Navona Restaurant, established in 1999 with the same devotion to hospitality and authentic ambiance. With equal attention and consistency, the guesthouse was built step by step as a family endeavor. Every space in La Casa Boutique has its own unique character. The house offers five rooms — Alexandria, Sofia, Roma, Wien, The Royal Suite — and one apartment, The Golden Suite. The interior is carefully crafted with handmade Italian furniture by Silik, an Italian brand with a long-standing tradition in the baroque style, offering a refined balance between classic lines and contemporary feel. Each detail has its place, and every room has its own personality and aura. La Casa Boutique greets its guests with calm rhythm and grace, a space marked by its unique touch — refined, harmonious, and built with care and consistency. Coming soon, La Casa Boutique will offer even more amenities — new rooms, a relaxation area with jacuzzi, sauna, and a salt room, providing even more complete care and tranquility.'
       },
       amenities: {
         title: 'Amenities',
@@ -133,13 +133,13 @@ const translations = {
     // Home Page
     home: {
       hero: {
-        title: 'Добре дошли в La Casa Boutique - GF',
-        subtitle: 'Насладете се на лукс и комфорт в сърцето на града',
+        title: 'Добре дошли в La Casa Boutique',
+        subtitle: 'Вечна естетика',
         cta: 'Резервирайте вашия престой'
       },
       intro: {
         title: 'За нашия хотел',
-        description: 'La Casa Boutique - GF предлага незабравимо преживяване с елегантни помещения, изключително обслужване и отлично местоположение. Открийте перфектното съчетание от комфорт и изтънченост.'
+        description: 'Добре дошли в свят на елегантност и уединение, разположен на минути от София. La Casa Boutique въплъщава усещане за комфорт и прецизност, облечено в класически тонове и барокови акценти. Всяка стая е индивидуално проектирана, с внимание към детайла и обзавена с ръчно изработени италиански мебели. Независимо дали търсите романтичен престой, тиха почивка или кратко бягство от ежедневния ритъм, тук ще ви посрещнем с топлина и внимание към всяка ваша нужда- с присъствие, което остава дълго след престоя.'
       },
       rooms: {
         title: 'Нашите стаи',
@@ -173,10 +173,10 @@ const translations = {
     
     // About Page
     about: {
-      title: 'За La Casa Boutique - GF',
+      title: 'За La Casa Boutique',
       story: {
         title: 'Нашата история',
-        description: 'Основан с страст към гостоприемството и лукса, La Casa Boutique - GF предоставя изключителни преживявания за нашите гости. Нашата отдаденост към съвършенството и вниманието към детайлите ни правят предпочитана дестинация.'
+        description: 'La Casa Boutique е бутикова къща за гости, намираща се в центъра на гр. Костинброд, и е естествено продължение на дългогодишната отдаденост на семейство Герасимови към качеството, уюта и детайла. В основата ѝ стои опитът и престижът, натрупан през годините с ресторант "Навона" – създаден през 1999 г. със същата отдаденост към гостоприемството и автентичната атмосфера. Със същото внимание и постоянство, къщата за гости се изгражда стъпка по стъпка, като семейно дело. Всяко пространство в La Casa Boutique носи уникален характер, като къщата разполага с 5 стаи- Alexandria, Sofia, Roma, Wien, The Royal suite и един апартамент- The golden suite. Интериорът е прецизно оформен с ръчно изработени италиански мебели от Silik, италианска марка с дългогодишна традиция в бароковия стил, внасящ изтънченост и фин баланс между класическа линия и съвременно усещане. Всеки детайл има собствено място и всяка стая носи собствен характер и излъчване. La Casa Boutique посреща със спокоен ритъм и изящество, пространство, с уникален по себе си почерк – фино, хармонично и изградено с усет и постоянство. Скоро La Casa Boutique ще посрещне своите гости с още допълнителни удобства — нови стаи, релакс зона с джакузи, сауна и солна стая, за да предложи още по-пълноценна грижа и спокойствие.'
       },
       amenities: {
         title: 'Удобства',

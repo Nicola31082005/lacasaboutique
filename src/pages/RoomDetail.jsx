@@ -15,7 +15,7 @@ import 'swiper/css/thumbs';
 const RoomDetail = () => {
   const { roomId } = useParams();
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   // Get room data by ID
@@ -58,7 +58,7 @@ const RoomDetail = () => {
               Rooms
             </button>
             <span>/</span>
-            <span className="text-secondary-900">{room.name}</span>
+            <span className="text-secondary-900">{language === 'en' ? room.nameEn : room.name}</span>
           </nav>
         </div>
       </section>
@@ -80,7 +80,7 @@ const RoomDetail = () => {
                   <SwiperSlide key={index}>
                     <img
                       src={image}
-                      alt={`${room.name} ${index + 1}`}
+                      alt={`${language === 'en' ? room.nameEn : room.name} ${index + 1}`}
                       className="w-full h-full object-cover"
                     />
                   </SwiperSlide>
@@ -101,7 +101,7 @@ const RoomDetail = () => {
                   <SwiperSlide key={index}>
                     <img
                       src={image}
-                      alt={`${room.name} thumbnail ${index + 1}`}
+                      alt={`${language === 'en' ? room.nameEn : room.name} thumbnail ${index + 1}`}
                       className="w-full h-full object-cover rounded cursor-pointer opacity-60 hover:opacity-100 transition-opacity"
                     />
                   </SwiperSlide>
@@ -112,7 +112,7 @@ const RoomDetail = () => {
             {/* Room Info */}
             <div className="space-y-6">
               <div>
-                <h1 className="text-3xl font-bold text-secondary-900 mb-2">{room.name}</h1>
+                <h1 className="text-3xl font-bold text-secondary-900 mb-2">{language === 'en' ? room.nameEn : room.name}</h1>
                 <div className="flex items-center gap-4 text-secondary-600">
                   <span className="flex items-center gap-1">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -127,6 +127,9 @@ const RoomDetail = () => {
                     {room.capacity.adults} adults
                     {room.capacity.children > 0 && `, ${room.capacity.children} children`}
                   </span>
+                </div>
+                <div className="mt-2 text-secondary-600">
+                  <span className="text-sm">{language === 'en' ? room.bedConfigurationEn : room.bedConfiguration}</span>
                 </div>
               </div>
 
@@ -158,7 +161,7 @@ const RoomDetail = () => {
             <div>
               <h2 className="text-2xl font-bold text-secondary-900 mb-4">About This Room</h2>
               <p className="text-secondary-700 leading-relaxed">
-                {room.longDescription}
+                {language === 'en' ? room.longDescriptionEn : room.longDescription}
               </p>
             </div>
             
@@ -168,7 +171,7 @@ const RoomDetail = () => {
                 {room.amenities.map((amenity, index) => (
                   <div key={index} className="flex items-center gap-3 p-3 bg-white rounded-lg">
                     <span className="text-xl">{amenity.icon}</span>
-                    <span className="text-secondary-700">{amenity.name}</span>
+                    <span className="text-secondary-700">{language === 'en' ? (amenity.nameEn || amenity.name) : amenity.name}</span>
                   </div>
                 ))}
               </div>

@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { rooms as allRooms } from '../data/rooms';
 
 const Rooms = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const navigate = useNavigate();
 
   return (
@@ -32,20 +32,20 @@ const Rooms = () => {
                 <div className="h-48 overflow-hidden relative">
                   <img
                     src={room.images[0]}
-                    alt={room.name}
+                    alt={language === 'en' ? room.nameEn : room.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-secondary-900">{room.name}</h3>
+                    <h3 className="text-secondary-900">{language === 'en' ? room.nameEn : room.name}</h3>
                     <span className="text-primary-600 font-bold">
                       {room.pricing.currency}{room.pricing.basePrice}/{room.pricing.period}
                     </span>
                   </div>
                   
                   <p className="text-secondary-600 text-sm mb-4 leading-relaxed">
-                    {room.description}
+                    {language === 'en' ? room.descriptionEn : room.description}
                   </p>
                   
                   <div className="flex items-center gap-4 mb-4 text-sm text-secondary-600">
@@ -63,9 +63,9 @@ const Rooms = () => {
                         <span
                           key={index}
                           className="px-2 py-1 bg-primary-100 text-primary-700 rounded text-sm"
-                          title={amenity.name}
+                          title={language === 'en' ? (amenity.nameEn || amenity.name) : amenity.name}
                         >
-                          {amenity.icon} {amenity.name}
+                          {amenity.icon} {language === 'en' ? (amenity.nameEn || amenity.name) : amenity.name}
                         </span>
                       ))}
                       {room.amenities.length > 4 && (
