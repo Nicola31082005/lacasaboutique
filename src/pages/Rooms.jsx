@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { rooms as allRooms } from '../data/rooms';
@@ -6,6 +6,11 @@ import { rooms as allRooms } from '../data/rooms';
 const Rooms = () => {
   const { t, language } = useLanguage();
   const navigate = useNavigate();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   return (
     <div className="min-h-screen">

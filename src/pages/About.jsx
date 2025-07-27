@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { getFeaturedAmenities } from '../data/amenities';
@@ -8,9 +8,13 @@ const About = () => {
   const { t } = useLanguage();
   const navigate = useNavigate();
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   // Get featured amenities from static data
   const amenities = getFeaturedAmenities();
-
 
   return (
     <div className="min-h-screen">

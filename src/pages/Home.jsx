@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import HeroCarousel from '../components/home/HeroCarousel';
@@ -8,6 +8,11 @@ import LocationMap from '../components/home/LocationMap';
 const Home = () => {
   const { t } = useLanguage();
   const navigate = useNavigate();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -40,15 +45,15 @@ const Home = () => {
             </p>
           </div>
         </div>
-          
+
         {/* Room Cards Carousel - Full Width */}
         <div className="w-full">
           <RoomCards />
         </div>
-        
+
         <div className="container-custom">
           <div className="text-center mt-12">
-            <button 
+            <button
               className="btn-primary"
               onClick={() => navigate('/rooms')}
             >
@@ -69,7 +74,7 @@ const Home = () => {
               {t('home.location.description')}
             </p>
           </div>
-          
+
           <LocationMap />
         </div>
       </section>
@@ -77,4 +82,4 @@ const Home = () => {
   );
 };
 
-export default Home; 
+export default Home;
