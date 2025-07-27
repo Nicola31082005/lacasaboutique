@@ -11,20 +11,6 @@ const About = () => {
   // Get featured amenities from static data
   const amenities = getFeaturedAmenities();
 
-  const teamMembers = [
-    {
-      name: 'Maria Petrova',
-      role: 'Hotel Manager',
-    },
-    {
-      name: 'Georgi Ivanov',
-      role: 'Head Chef',
-    },
-    {
-      name: 'Elena Dimitrova',
-      role: 'Guest Relations',
-    },
-  ];
 
   return (
     <div className="min-h-screen">
@@ -68,8 +54,12 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-secondary-200 to-secondary-300 h-96 rounded-lg flex items-center justify-center shadow-lg">
-              <span className="text-secondary-700 font-semibold">Hotel Story Image</span>
+            <div className="h-96 rounded-lg overflow-hidden shadow-lg">
+              <img
+                src="/Carousel-Images/IMG_7670.HEIC.jpg"
+                alt="Hotel Story"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
@@ -86,7 +76,7 @@ const About = () => {
               Luxury amenities crafted for your comfort
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {amenities.map((amenity) => (
               <div key={amenity.id} className="card text-center hover:shadow-xl transition-all duration-300 border border-primary-200">
@@ -108,7 +98,7 @@ const About = () => {
         </div>
       </section>
 
-     
+
       {/* Call to Action Section */}
       <section className="section-padding bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400 text-white">
         <div className="container-custom">
@@ -120,13 +110,13 @@ const About = () => {
               Join thousands of satisfied guests who have made unforgettable memories with us.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
+              <button
                 className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-primary-50 transition-all duration-300 shadow-lg hover:shadow-xl"
                 onClick={() => navigate('/rooms')}
               >
                 View Our Rooms
               </button>
-              <button 
+              <button
                 className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-all duration-300"
                 onClick={() => navigate('/contact')}
               >
@@ -140,4 +130,4 @@ const About = () => {
   );
 };
 
-export default About; 
+export default About;

@@ -24,28 +24,28 @@ const HeroCarousel = () => {
   const slides = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      image: '/Carousel-Images/dji_fly_20250726_193852_69_1753547956401_photo_optimized.jpeg',
       title: t('home.hero.title'),
       subtitle: t('home.hero.subtitle'),
       overlay: 'from-black/60 via-black/30 to-transparent'
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      image: '/Carousel-Images/dji_fly_20250726_194044_78_1753548086076_photo_optimized.jpeg',
       title: 'Luxury Accommodations',
       subtitle: 'Elegantly designed rooms with premium amenities',
       overlay: 'from-black/50 via-black/25 to-transparent'
     },
     {
       id: 3,
-      image: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      image: '/Carousel-Images/IMG_7633.HEIC.jpg',
       title: 'Exceptional Dining',
       subtitle: 'Savor culinary excellence in our restaurant',
       overlay: 'from-black/55 via-black/30 to-transparent'
     },
     {
       id: 4,
-      image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      image: '/Carousel-Images/IMG_7670.HEIC.jpg',
       title: 'Prime Location',
       subtitle: 'Perfectly situated in the heart of the city',
       overlay: 'from-black/60 via-black/35 to-transparent'
@@ -83,7 +83,7 @@ const HeroCarousel = () => {
           <SwiperSlide key={slide.id} className="relative">
             <div className="relative h-full w-full">
               {/* Background Image */}
-              <div 
+              <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{
                   backgroundImage: `url(${slide.image})`,
@@ -123,7 +123,7 @@ const HeroCarousel = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </div>
-      
+
       <div className="hero-next absolute right-4 md:right-8 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 cursor-pointer group">
         <svg className="w-6 h-6 text-white group-hover:text-primary-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -158,9 +158,9 @@ const HeroCarousel = () => {
         transition={{ duration: 0.8, delay: 0.5 }}
       >
         <div className="flex items-center space-x-3">
-          <img 
-            src="/logo.png" 
-            alt="La Casa Boutique Logo" 
+          <img
+            src="/logo.png"
+            alt="La Casa Boutique Logo"
             className="w-8 h-8 object-contain"
           />
           <div>
@@ -173,4 +173,4 @@ const HeroCarousel = () => {
   );
 };
 
-export default HeroCarousel; 
+export default HeroCarousel;
