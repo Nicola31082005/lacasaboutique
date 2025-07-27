@@ -429,15 +429,13 @@ export const rooms = [
 
     images: [
       "/Roma/IMG_7576.HEIC.jpg",
-      "/Roma/IMG_7582.HEIC",
-      "/Roma/IMG_7587.HEIC",
       "/Roma/IMG_7593.HEIC.jpg",
-      "/Roma/IMG_7594.HEIC.jpg",
-      "/Roma/IMG_7632.HEIC.jpg",
       "/Roma/_A4A2201.JPG",
-      "/Roma/_A4A2223.JPG",
-      "/Roma/IMG_7874.JPG",
       "/Roma/IMG_7888.JPG",
+      "/Roma/IMG_7874.JPG",
+      "/Roma/IMG_7582.jpg",
+      "/Roma/IMG_7587.jpg",
+      "/Roma/_A4A2223.JPG",
     ],
 
     amenities: [
