@@ -17,6 +17,10 @@ const RoomDetail = () => {
   const navigate = useNavigate();
   const { t, language } = useLanguage();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
 
   // Get room data by ID
   const room = getRoomById(parseInt(roomId));
@@ -27,7 +31,7 @@ const RoomDetail = () => {
         <div className="text-center">
           <h2 className="text-2xl font-bold text-secondary-900 mb-4">Room Not Found</h2>
           <p className="text-secondary-600 mb-6">The room you're looking for doesn't exist.</p>
-          <button 
+          <button
             onClick={() => navigate('/rooms')}
             className="btn-primary"
           >
@@ -38,20 +42,64 @@ const RoomDetail = () => {
     );
   }
 
+  const openLightbox = (index) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setIsDragging(false);
+  };
+
+    const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % room.images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + room.images.length) % room.images.length);
+  };
+
+  const handleSwipeStart = (e) => {
+    setIsDragging(true);
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    setDragStart({ x: clientX, y: 0 });
+  };
+
+  const handleSwipeEnd = (e) => {
+    if (!isDragging) return;
+
+    const clientX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+    const deltaX = clientX - dragStart.x;
+    const threshold = 50; // minimum distance for a swipe
+
+    if (Math.abs(deltaX) > threshold) {
+      if (deltaX > 0) {
+        // Swiped right - go to previous image
+        prevImage();
+      } else {
+        // Swiped left - go to next image
+        nextImage();
+      }
+    }
+
+    setIsDragging(false);
+  };
+
   return (
     <div className="min-h-screen">
       {/* Breadcrumb */}
       <section className="bg-secondary-50 py-4">
         <div className="container-custom">
           <nav className="flex items-center space-x-2 text-sm text-secondary-600">
-            <button 
+            <button
               onClick={() => navigate('/')}
               className="hover:text-primary-600 transition-colors"
             >
               Home
             </button>
             <span>/</span>
-            <button 
+            <button
               onClick={() => navigate('/rooms')}
               className="hover:text-primary-600 transition-colors"
             >
@@ -81,12 +129,13 @@ const RoomDetail = () => {
                     <img
                       src={image}
                       alt={`${language === 'en' ? room.nameEn : room.name} ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover cursor-pointer"
+                      onClick={() => openLightbox(index)}
                     />
                   </SwiperSlide>
                 ))}
               </Swiper>
-              
+
               {/* Thumbnail Navigation */}
               <Swiper
                 onSwiper={setThumbsSwiper}
@@ -103,6 +152,7 @@ const RoomDetail = () => {
                       src={image}
                       alt={`${language === 'en' ? room.nameEn : room.name} thumbnail ${index + 1}`}
                       className="w-full h-full object-cover rounded cursor-pointer opacity-60 hover:opacity-100 transition-opacity"
+                      onClick={() => openLightbox(index)}
                     />
                   </SwiperSlide>
                 ))}
@@ -148,7 +198,7 @@ const RoomDetail = () => {
                 </button>
               </div>
 
-              
+
             </div>
           </div>
         </div>
@@ -164,7 +214,7 @@ const RoomDetail = () => {
                 {language === 'en' ? room.longDescriptionEn : room.longDescription}
               </p>
             </div>
-            
+
             <div>
               <h3 className="text-xl font-semibold text-secondary-900 mb-4">Amenities</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -180,13 +230,10 @@ const RoomDetail = () => {
         </div>
       </section>
 
-      {/* Pricing Information */}
-      
-
       {/* Back to Rooms Button */}
       <section className="section-padding bg-secondary-50">
         <div className="container-custom text-center">
-          <button 
+          <button
             onClick={() => navigate('/rooms')}
             className="btn-secondary"
           >
@@ -194,8 +241,72 @@ const RoomDetail = () => {
           </button>
         </div>
       </section>
+
+                  {/* Simple Image Lightbox */}
+      {lightboxOpen && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4">
+          <div
+            className="relative"
+            onMouseDown={handleSwipeStart}
+            onMouseUp={handleSwipeEnd}
+            onTouchStart={handleSwipeStart}
+            onTouchEnd={handleSwipeEnd}
+          >
+            {/* Close Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                closeLightbox();
+              }}
+              className="absolute top-4 right-4 text-white text-2xl z-10 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center"
+            >
+              ×
+            </button>
+
+            {/* Navigation */}
+            {room.images.length > 1 && (
+              <>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    prevImage();
+                  }}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-2xl z-10 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center"
+                >
+                  ‹
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    nextImage();
+                  }}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-2xl z-10 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center"
+                >
+                  ›
+                </button>
+              </>
+            )}
+
+            {/* Image */}
+            <img
+              src={room.images[currentImageIndex]}
+              alt={`${language === 'en' ? room.nameEn : room.name} ${currentImageIndex + 1}`}
+              className="max-w-full max-h-screen object-contain select-none"
+              onDragStart={(e) => e.preventDefault()}
+            />
+
+            {/* Counter */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black bg-opacity-50 px-3 py-1 rounded">
+              {currentImageIndex + 1} / {room.images.length}
+              {room.images.length > 1 && (
+                <div className="text-xs mt-1 opacity-75">Swipe or use arrows to navigate</div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default RoomDetail; 
+export default RoomDetail;
