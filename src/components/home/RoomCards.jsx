@@ -76,10 +76,7 @@ const RoomCards = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
 
-                {/* Price Badge */}
-                <div className="absolute top-4 right-4 bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
-                  {room.pricing.currency}{room.pricing.basePrice}/{room.pricing.period}
-                </div>
+
               </div>
 
               {/* Room Details - Flexible but structured */}

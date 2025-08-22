@@ -189,15 +189,6 @@ const RoomDetail = () => {
               </div>
 
               <div className="bg-primary-50 p-6 rounded-lg">
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <p className="text-2xl font-bold text-primary-600">
-                      {room.pricing.currency}{room.pricing.basePrice}
-                    </p>
-                    <p className="text-sm text-secondary-600">per {room.pricing.period}</p>
-                  </div>
-
-                </div>
                 <button className="btn-primary w-full">
                   Book Now
                 </button>

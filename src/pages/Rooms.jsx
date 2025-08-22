@@ -45,10 +45,7 @@ const Rooms = () => {
                     alt={language === 'en' ? room.nameEn : room.name}
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                   />
-                  {/* Price Badge */}
-                  <div className="absolute top-4 right-4 bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
-                    {room.pricing.currency}{room.pricing.basePrice}/{room.pricing.period}
-                  </div>
+
                 </div>
 
                 {/* Room Details - Flexible but structured */}

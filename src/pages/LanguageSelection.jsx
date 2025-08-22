@@ -69,9 +69,6 @@ const LanguageSelection = ({ onLanguageSelected }) => {
             <h1 className="text-4xl md:text-5xl font-elegant text-secondary-900 mb-3 text-balance">
               La Casa Boutique
             </h1>
-            <div className="text-lg text-secondary-600 font-medium tracking-wider uppercase mb-4">
-              Gorna Ficha
-            </div>
             <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-primary-400 to-transparent mx-auto"></div>
           </motion.div>
 
