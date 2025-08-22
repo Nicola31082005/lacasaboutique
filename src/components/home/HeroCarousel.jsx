@@ -84,9 +84,13 @@ const HeroCarousel = () => {
             <div className="relative h-full w-full">
               {/* Background Image */}
               <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                className="absolute inset-0 bg-cover bg-center md:bg-center bg-no-repeat"
                 style={{
                   backgroundImage: `url(${slide.image})`,
+                  backgroundPosition: 'center 20%',
+                  '@media (min-width: 768px)': {
+                    backgroundPosition: 'center center'
+                  }
                 }}
               >
                 <div className="absolute inset-0 bg-black/20"></div>

@@ -342,3 +342,15 @@ html {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Mobile Hero Image Styles */
+.mobile-hero-image {
+  background-position: center 25% !important;
+  background-size: cover !important;
+}
+
+@media (min-width: 768px) {
+  .mobile-hero-image {
+    background-position: center center !important;
+  }
+}
+
