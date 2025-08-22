@@ -32,22 +32,22 @@ const HeroCarousel = () => {
     {
       id: 2,
       image: '/Carousel-Images/dji_fly_20250726_194044_78_1753548086076_photo_optimized.jpeg',
-      title: 'Luxury Accommodations',
-      subtitle: 'Elegantly designed rooms with premium amenities',
+      title: t('home.hero.luxuryAccommodations'),
+      subtitle: t('home.hero.luxuryAccommodationsSubtitle'),
       overlay: 'from-black/50 via-black/25 to-transparent'
     },
     {
       id: 3,
       image: '/Carousel-Images/IMG_7633.HEIC.jpg',
-      title: 'Exceptional Dining',
-      subtitle: 'Savor culinary excellence in our restaurant',
+      title: t('home.hero.exceptionalDining'),
+      subtitle: t('home.hero.exceptionalDiningSubtitle'),
       overlay: 'from-black/55 via-black/30 to-transparent'
     },
     {
       id: 4,
       image: '/Carousel-Images/IMG_7670.HEIC.jpg',
-      title: 'Prime Location',
-      subtitle: 'Perfectly situated in the heart of the city',
+      title: t('home.hero.primeLocation'),
+      subtitle: t('home.hero.primeLocationSubtitle'),
       overlay: 'from-black/60 via-black/35 to-transparent'
     }
   ];
@@ -141,7 +141,7 @@ const HeroCarousel = () => {
         transition={{ duration: 1, delay: 1 }}
       >
         <span className="text-sm font-medium tracking-wider rotate-90 transform origin-center">
-          SCROLL
+          {t('home.hero.scroll')}
         </span>
         <motion.div
           className="w-px h-12 bg-white/60"

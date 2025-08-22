@@ -10,7 +10,7 @@ const translations = {
       about: 'About Us',
       language: 'Language'
     },
-    
+
     // Language Selection Page
     languageSelection: {
       title: 'Welcome to La Casa Boutique - GF',
@@ -19,13 +19,21 @@ const translations = {
       bulgarian: 'Bulgarian',
       continue: 'Continue'
     },
-    
+
     // Home Page
     home: {
       hero: {
         title: 'Welcome to La Casa Boutique',
         subtitle: 'Timeless Aesthetics',
-        cta: 'Book Your Stay'
+        cta: 'Book Your Stay',
+        luxuryAccommodations: 'Luxury Accommodations',
+        luxuryAccommodationsSubtitle: 'Elegantly designed rooms with premium amenities',
+        exceptionalDining: 'Exceptional Dining',
+        exceptionalDiningSubtitle: 'Savor culinary excellence in our restaurant',
+        primeLocation: 'Prime Location',
+        primeLocationSubtitle: 'Perfectly situated in the heart of the city',
+        scroll: 'SCROLL',
+        luxuryHotelExperience: 'Luxury Hotel Experience'
       },
       intro: {
         title: 'About Our Hotel',
@@ -41,7 +49,7 @@ const translations = {
         description: 'Perfectly situated in the heart of the city'
       }
     },
-    
+
     // Rooms Page
     rooms: {
       title: 'Our Rooms',
@@ -60,7 +68,7 @@ const translations = {
         viewDetails: 'View Details'
       }
     },
-    
+
     // About Page
     about: {
       title: 'About La Casa Boutique',
@@ -82,7 +90,7 @@ const translations = {
         description: 'Our team is committed to making your stay unforgettable.'
       }
     },
-    
+
     // Footer
     footer: {
       contact: {
@@ -94,7 +102,7 @@ const translations = {
       followUs: 'Follow Us',
       copyright: '© 2025 La Casa Boutique - GF. All rights reserved.'
     },
-    
+
     // Common
     common: {
       loading: 'Loading...',
@@ -111,7 +119,7 @@ const translations = {
       back: 'Back'
     }
   },
-  
+
   bg: {
     // Navigation
     nav: {
@@ -120,7 +128,7 @@ const translations = {
       about: 'За нас',
       language: 'Език'
     },
-    
+
     // Language Selection Page
     languageSelection: {
       title: 'Добре дошли в La Casa Boutique - GF',
@@ -129,13 +137,21 @@ const translations = {
       bulgarian: 'Български',
       continue: 'Продължи'
     },
-    
+
     // Home Page
     home: {
       hero: {
         title: 'Добре дошли в La Casa Boutique',
         subtitle: 'Вечна естетика',
-        cta: 'Резервирайте вашия престой'
+        cta: 'Резервирайте вашия престой',
+        luxuryAccommodations: 'Луксозни настанявания',
+        luxuryAccommodationsSubtitle: 'Елегантно проектирани стаи с премиум удобства',
+        exceptionalDining: 'Изключителна кухня',
+        exceptionalDiningSubtitle: 'Насладете се на кулинарното изкуство в нашия ресторант',
+        primeLocation: 'Първокласно местоположение',
+        primeLocationSubtitle: 'Перфектно разположен в сърцето на града',
+        scroll: 'ПРЕВЪРТЕТЕ',
+        luxuryHotelExperience: 'Луксозно хотелско преживяване'
       },
       intro: {
         title: 'За нашия хотел',
@@ -151,7 +167,7 @@ const translations = {
         description: 'Перфектно разположен в сърцето на града'
       }
     },
-    
+
     // Rooms Page
     rooms: {
       title: 'Нашите стаи',
@@ -170,7 +186,7 @@ const translations = {
         viewDetails: 'Вижте детайли'
       }
     },
-    
+
     // About Page
     about: {
       title: 'За La Casa Boutique',
@@ -192,7 +208,7 @@ const translations = {
         description: 'Нашият отдаден екип от професионалисти е ангажиран да направи вашия престой незабравим.'
       }
     },
-    
+
     // Footer
     footer: {
       contact: {
@@ -204,7 +220,7 @@ const translations = {
       followUs: 'Следете ни',
       copyright: '© 2025 La Casa Boutique - GF. Всички права запазени.'
     },
-    
+
     // Common
     common: {
       loading: 'Зареждане...',
@@ -254,7 +270,7 @@ export const LanguageProvider = ({ children }) => {
   const t = (key) => {
     const keys = key.split('.');
     let value = translations[language];
-    
+
     for (const k of keys) {
       if (value && typeof value === 'object' && k in value) {
         value = value[k];
@@ -271,7 +287,7 @@ export const LanguageProvider = ({ children }) => {
         break;
       }
     }
-    
+
     return typeof value === 'string' ? value : key;
   };
 
@@ -299,12 +315,12 @@ export const LanguageProvider = ({ children }) => {
 // Custom hook to use the language context
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
-  
+
   if (!context) {
     throw new Error('useLanguage must be used within a LanguageProvider');
   }
-  
+
   return context;
 };
 
-export default LanguageContext; 
+export default LanguageContext;
