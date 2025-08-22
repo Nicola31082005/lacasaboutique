@@ -189,8 +189,11 @@ const RoomDetail = () => {
               </div>
 
               <div className="bg-primary-50 p-6 rounded-lg">
-                <button className="btn-primary w-full">
-                  Book Now
+                <button
+                  className="btn-primary w-full"
+                  onClick={() => window.open('https://www.booking.com/hotel/bg/la-casa-boutique.en-gb.html?aid=898224&app_hotel_id=14751949&checkin=2025-08-19&checkout=2025-08-20&from_sn=ios&group_adults=2&group_children=0&label=hotel_details-TXoyVj%401755630602&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA%2C&chal_t=1755901190055&force_referer=', '_blank')}
+                >
+                  {t('rooms.details.bookNow')}
                 </button>
               </div>
 

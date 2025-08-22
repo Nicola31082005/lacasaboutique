@@ -29,9 +29,9 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 cursor-pointer">
-            <img 
-              src="/logo.png" 
-              alt="La Casa Boutique Logo" 
+            <img
+              src="/logo.png"
+              alt="La Casa Boutique Logo"
               className="w-26 h-20 object-contain"
             />
             <div className="hidden md:block">
@@ -79,17 +79,17 @@ const Header = () => {
               className="md:hidden p-2 rounded-lg hover:bg-secondary-100 transition-colors duration-200"
             >
               <div className="w-6 h-6 flex flex-col justify-center items-center">
-                <span 
+                <span
                   className={`bg-secondary-900 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
                     isMobileMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'
                   }`}
                 />
-                <span 
+                <span
                   className={`bg-secondary-900 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${
                     isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
                   }`}
                 />
-                <span 
+                <span
                   className={`bg-secondary-900 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
                     isMobileMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'
                   }`}
@@ -125,4 +125,4 @@ const Header = () => {
   );
 };
 
-export default Header; 
+export default Header;

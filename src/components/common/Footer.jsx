@@ -6,7 +6,7 @@ import hotelInfo from '../../data/hotelInfo';
 const Footer = () => {
   const { t } = useLanguage();
 
-  
+
 
   const quickLinks = [
     { name: t('nav.home'), path: '/' },
@@ -15,19 +15,19 @@ const Footer = () => {
   ];
 
   const contactInfo = [
-    { 
-      type: 'address', 
-      label: t('footer.contact.address'), 
+    {
+      type: 'address',
+      label: t('footer.contact.address'),
       value: hotelInfo.contact.address
     },
-    { 
-      type: 'phone', 
-      label: t('footer.contact.phone'), 
+    {
+      type: 'phone',
+      label: t('footer.contact.phone'),
       value: `${hotelInfo.contact.phone} / ${hotelInfo.contact.phoneSecondary} / ${hotelInfo.contact.phoneThird}`
     },
-    { 
-      type: 'email', 
-      label: t('footer.contact.email'), 
+    {
+      type: 'email',
+      label: t('footer.contact.email'),
       value: hotelInfo.contact.email
     },
   ];
@@ -40,9 +40,9 @@ const Footer = () => {
           {/* Hotel Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <img 
-                src="/logo.png" 
-                alt="La Casa Boutique Logo" 
+              <img
+                src="/logo.png"
+                alt="La Casa Boutique Logo"
                 className="w-20 h-16 object-contain"
               />
               <div>
@@ -52,10 +52,10 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-secondary-300 leading-relaxed mb-6 max-w-md">
-              Experience luxury and comfort in the heart of the city. Our boutique hotel offers 
+              Experience luxury and comfort in the heart of the city. Our boutique hotel offers
               personalized service and elegant accommodations for the discerning traveler.
             </p>
-         
+
           </div>
 
           {/* Quick Links */}
@@ -103,7 +103,7 @@ const Footer = () => {
             <p className="text-secondary-400 text-sm">
               {t('footer.copyright')}
             </p>
-            
+
           </div>
         </div>
       </div>
@@ -111,4 +111,4 @@ const Footer = () => {
   );
 };
 
-export default Footer; 
+export default Footer;
