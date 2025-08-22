@@ -72,12 +72,17 @@ const translations = {
     // About Page
     about: {
       title: 'About La Casa Boutique',
+      subtitle: 'Discover the story behind our luxury boutique hotel and the dedicated team that makes it special.',
       story: {
         title: 'Our Story',
-        description: 'La Casa Boutique is a boutique guesthouse located in the center of Kostinbrod. It is a natural continuation of the Gerasimov family\'s long-standing dedication to quality, coziness, and detail. At its core stands the experience and prestige gained over the years with Navona Restaurant, established in 1999 with the same devotion to hospitality and authentic ambiance. With equal attention and consistency, the guesthouse was built step by step as a family endeavor. Every space in La Casa Boutique has its own unique character. The house offers five rooms — Alexandria, Sofia, Roma, Wien, The Royal Suite — and one apartment, The Golden Suite. The interior is carefully crafted with handmade Italian furniture by Silik, an Italian brand with a long-standing tradition in the baroque style, offering a refined balance between classic lines and contemporary feel. Each detail has its place, and every room has its own personality and aura. La Casa Boutique greets its guests with calm rhythm and grace, a space marked by its unique touch — refined, harmonious, and built with care and consistency. Coming soon, La Casa Boutique will offer even more amenities — new rooms, a relaxation area with jacuzzi, sauna, and a salt room, providing even more complete care and tranquility.'
+        description: 'La Casa Boutique is a boutique guesthouse located in the center of Kostinbrod. It is a natural continuation of the Gerasimov family\'s long-standing dedication to quality, coziness, and detail. At its core stands the experience and prestige gained over the years with Navona Restaurant, established in 1999 with the same devotion to hospitality and authentic ambiance. With equal attention and consistency, the guesthouse was built step by step as a family endeavor. Every space in La Casa Boutique has its own unique character. The house offers five rooms — Alexandria, Sofia, Roma, Wien, The Royal Suite — and one apartment, The Golden Suite. The interior is carefully crafted with handmade Italian furniture by Silik, an Italian brand with a long-standing tradition in the baroque style, offering a refined balance between classic lines and contemporary feel. Each detail has its place, and every room has its own personality and aura. La Casa Boutique greets its guests with calm rhythm and grace, a space marked by its unique touch — refined, harmonious, and built with care and consistency. Coming soon, La Casa Boutique will offer even more amenities — new rooms, a relaxation area with jacuzzi, sauna, and a salt room, providing even more complete care and tranquility.',
+        established: 'Established in',
+        rooms: 'luxurious rooms and suites',
+        located: 'Located in'
       },
       amenities: {
         title: 'Amenities',
+        subtitle: 'Luxury amenities crafted for your comfort',
         wifi: 'Free Wi-Fi',
         parking: 'Free Parking',
         breakfast: 'Complimentary Breakfast',
@@ -88,6 +93,12 @@ const translations = {
       team: {
         title: 'Our Team',
         description: 'Our team is committed to making your stay unforgettable.'
+      },
+      cta: {
+        title: 'Ready to Experience',
+        subtitle: 'Join thousands of satisfied guests who have made unforgettable memories with us.',
+        viewRooms: 'View Our Rooms',
+        contactUs: 'Contact Us'
       }
     },
 
@@ -101,6 +112,22 @@ const translations = {
       },
       followUs: 'Follow Us',
       copyright: '© 2025 La Casa Boutique - GF. All rights reserved.'
+    },
+
+    // Amenities
+    amenities: {
+      wifi: {
+        name: 'Free Wi-Fi',
+        description: 'Complimentary high-speed Wi-Fi throughout the hotel'
+      },
+      restaurant: {
+        name: 'Fine Dining Restaurant',
+        description: 'Award-winning restaurant featuring international and local cuisine'
+      },
+      wellness: {
+        name: 'Wellness Center',
+        description: 'Wellness center with spa services'
+      }
     },
 
     // Common
@@ -190,12 +217,17 @@ const translations = {
     // About Page
     about: {
       title: 'За La Casa Boutique',
+      subtitle: 'Открийте историята зад нашия луксозен бутиков хотел и отдадения екип, който го прави специален.',
       story: {
         title: 'Нашата история',
-        description: 'La Casa Boutique е бутикова къща за гости, намираща се в центъра на гр. Костинброд, и е естествено продължение на дългогодишната отдаденост на семейство Герасимови към качеството, уюта и детайла. В основата ѝ стои опитът и престижът, натрупан през годините с ресторант "Навона" – създаден през 1999 г. със същата отдаденост към гостоприемството и автентичната атмосфера. Със същото внимание и постоянство, къщата за гости се изгражда стъпка по стъпка, като семейно дело. Всяко пространство в La Casa Boutique носи уникален характер, като къщата разполага с 5 стаи- Alexandria, Sofia, Roma, Wien, The Royal suite и един апартамент- The golden suite. Интериорът е прецизно оформен с ръчно изработени италиански мебели от Silik, италианска марка с дългогодишна традиция в бароковия стил, внасящ изтънченост и фин баланс между класическа линия и съвременно усещане. Всеки детайл има собствено място и всяка стая носи собствен характер и излъчване. La Casa Boutique посреща със спокоен ритъм и изящество, пространство, с уникален по себе си почерк – фино, хармонично и изградено с усет и постоянство. Скоро La Casa Boutique ще посрещне своите гости с още допълнителни удобства — нови стаи, релакс зона с джакузи, сауна и солна стая, за да предложи още по-пълноценна грижа и спокойствие.'
+        description: 'La Casa Boutique е бутикова къща за гости, намираща се в центъра на гр. Костинброд, и е естествено продължение на дългогодишната отдаденост на семейство Герасимови към качеството, уюта и детайла. В основата ѝ стои опитът и престижът, натрупан през годините с ресторант "Навона" – създаден през 1999 г. със същата отдаденост към гостоприемството и автентичната атмосфера. Със същото внимание и постоянство, къщата за гости се изгражда стъпка по стъпка, като семейно дело. Всяко пространство в La Casa Boutique носи уникален характер, като къщата разполага с 5 стаи- Alexandria, Sofia, Roma, Wien, The Royal suite и един апартамент- The golden suite. Интериорът е прецизно оформен с ръчно изработени италиански мебели от Silik, италианска марка с дългогодишна традиция в бароковия стил, внасящ изтънченост и фин баланс между класическа линия и съвременно усещане. Всеки детайл има собствено място и всяка стая носи собствен характер и излъчване. La Casa Boutique посреща със спокоен ритъм и изящество, пространство, с уникален по себе си почерк – фино, хармонично и изградено с усет и постоянство. Скоро La Casa Boutique ще посрещне своите гости с още допълнителни удобства — нови стаи, релакс зона с джакузи, сауна и солна стая, за да предложи още по-пълноценна грижа и спокойствие.',
+        established: 'Основан през',
+        rooms: 'луксозни стаи и апартаменти',
+        located: 'Разположен в'
       },
       amenities: {
         title: 'Удобства',
+        subtitle: 'Луксозни удобства, създадени за вашия комфорт',
         wifi: 'Безплатен Wi-Fi',
         parking: 'Безплатен паркинг',
         breakfast: 'Безплатна закуска',
@@ -206,6 +238,12 @@ const translations = {
       team: {
         title: 'Нашият екип',
         description: 'Нашият отдаден екип от професионалисти е ангажиран да направи вашия престой незабравим.'
+      },
+      cta: {
+        title: 'Готови ли сте да преживеете',
+        subtitle: 'Присъединете се към хиляди доволни гости, които са направили незабравими спомени с нас.',
+        viewRooms: 'Вижте нашите стаи',
+        contactUs: 'Свържете се с нас'
       }
     },
 
@@ -219,6 +257,22 @@ const translations = {
       },
       followUs: 'Следете ни',
       copyright: '© 2025 La Casa Boutique - GF. Всички права запазени.'
+    },
+
+    // Amenities
+    amenities: {
+      wifi: {
+        name: 'Безплатен Wi-Fi',
+        description: 'Безплатен високоскоростен Wi-Fi в целия хотел'
+      },
+      restaurant: {
+        name: 'Ресторант за фина кухня',
+        description: 'Награден ресторант с международна и местна кухня'
+      },
+      wellness: {
+        name: 'Уелнес център',
+        description: 'Уелнес център със СПА услуги'
+      }
     },
 
     // Common

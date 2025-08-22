@@ -26,7 +26,7 @@ const About = () => {
               {t('about.title')}
             </h1>
             <p className="text-xl text-secondary-100 max-w-2xl mx-auto">
-              Discover the story behind our luxury boutique hotel and the dedicated team that makes it special.
+              {t('about.subtitle')}
             </p>
           </div>
         </div>
@@ -46,15 +46,15 @@ const About = () => {
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary-600 rounded-full mt-2"></div>
-                  <p className="text-secondary-600">Established in {hotelInfo.features.established}</p>
+                  <p className="text-secondary-600">{t('about.story.established')} {hotelInfo.features.established}</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary-600 rounded-full mt-2"></div>
-                  <p className="text-secondary-600">{hotelInfo.features.totalRooms} luxurious rooms and suites</p>
+                  <p className="text-secondary-600">{hotelInfo.features.totalRooms} {t('about.story.rooms')}</p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary-600 rounded-full mt-2"></div>
-                  <p className="text-secondary-600">Located in {hotelInfo.contact.location.city}, {hotelInfo.contact.location.country}</p>
+                  <p className="text-secondary-600">{t('about.story.located')} {hotelInfo.contact.location.city}, {hotelInfo.contact.location.country}</p>
                 </div>
               </div>
             </div>
@@ -77,7 +77,7 @@ const About = () => {
               {t('about.amenities.title')}
             </h2>
             <p className="text-secondary-600 text-lg">
-              Luxury amenities crafted for your comfort
+              {t('about.amenities.subtitle')}
             </p>
           </div>
 
@@ -87,10 +87,10 @@ const About = () => {
                 <div className="p-8">
                   <div className="text-4xl mb-4">{amenity.icon}</div>
                   <h3 className="mb-2 text-secondary-900">
-                    {amenity.name}
+                    {t(`amenities.${amenity.id}.name`)}
                   </h3>
                   <p className="text-secondary-600">
-                    {amenity.description}
+                    {t(`amenities.${amenity.id}.description`)}
                   </p>
                   <div className="mt-4 text-sm text-primary-600 font-medium">
                     {amenity.hours}
@@ -108,23 +108,23 @@ const About = () => {
         <div className="container-custom">
           <div className="text-center">
             <h2 className="mb-4 text-white">
-              Ready to Experience {hotelInfo.name}?
+              {t('about.cta.title')} {hotelInfo.name}?
             </h2>
             <p className="text-primary-100 text-lg mb-8 max-w-2xl mx-auto">
-              Join thousands of satisfied guests who have made unforgettable memories with us.
+              {t('about.cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-primary-50 transition-all duration-300 shadow-lg hover:shadow-xl"
                 onClick={() => navigate('/rooms')}
               >
-                View Our Rooms
+                {t('about.cta.viewRooms')}
               </button>
               <button
                 className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-all duration-300"
                 onClick={() => navigate('/contact')}
               >
-                Contact Us
+                {t('about.cta.contactUs')}
               </button>
             </div>
           </div>
