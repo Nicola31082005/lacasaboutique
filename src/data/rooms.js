@@ -142,7 +142,7 @@ export const roomAmenities = {
 export const rooms = [
   {
     id: 1,
-    name: "Кралският апартамент",
+    name: "The Royal Suite",
     nameEn: "The Royal Suite",
     type: roomTypes.ROYAL,
     description:
@@ -154,7 +154,6 @@ export const rooms = [
     longDescriptionEn:
       "The Royal Suite offers a distinct sense of spaciousness, tranquility, and completeness. It impresses with rich wooden textures, crimson accents, and carefully selected furniture emphasizing form and material. The central bedroom is organized around a monumental bed with a decorative headboard and wall composition, complemented by classic armchairs and handcrafted elements. The second lounging area features a deep terracotta leather sofa, a solid wardrobe, an elegant display cabinet, and access to a balcony overlooking the restaurant's courtyard. The bathroom is finished with marble surfaces, LED mirror, black fittings, and full amenities. This suite is perfect for both couples and guests who appreciate silence, symmetry, and the refined elegance of a cohesive interior.",
 
-    size: "45m²",
     capacity: { adults: 2, children: 1 },
     bedConfiguration: "King Size легло",
     bedConfigurationEn: "King-size bed",
@@ -205,7 +204,7 @@ export const rooms = [
 
   {
     id: 2,
-    name: "Златният апартамент",
+    name: "The Golden Suite",
     nameEn: "The Golden Suite",
     type: roomTypes.GOLDEN,
     description:
@@ -217,7 +216,6 @@ export const rooms = [
     longDescriptionEn:
       "The Golden Suite is the most spacious accommodation in the hotel, consisting of two separate bedrooms that share the same aesthetic language – calm, elegance, and attention to detail. The first room includes a balcony, abundant natural light, and gold-white toned furniture with fine handcrafted ornaments, paired with baroque chairs and delicate figurines. The en-suite bathroom is designed in deep blue and stone hues, featuring a rain shower and illuminated mirror. The second bedroom, Scretisca, follows the same concept – pastel walls, richly decorated furniture, soft lighting, and a private bathroom in matching style. This suite is ideal for families or guests seeking privacy and comfort, offering two TVs, air conditioning, a minibar, a work area, and an atmosphere where every element – from lighting to fabric – is chosen with balance and taste.",
 
-    size: "60m²",
     capacity: { adults: 4, children: 2 },
     bedConfiguration: "Две самостоятелни спални",
     bedConfigurationEn: "Two separate bedrooms",
@@ -275,8 +273,8 @@ export const rooms = [
 
   {
     id: 3,
-    name: "София",
-    nameEn: "Sofia Room",
+    name: "Sofia",
+    nameEn: "Sofia",
     type: roomTypes.STUDIO,
     description:
       "Стая София е самостоятелно студио, сгушено под скосения покрив на най-горния етаж — тихо, светло пространство, създадено за пълноценен отдих.",
@@ -287,7 +285,6 @@ export const rooms = [
     longDescriptionEn:
       'The Sofia Room is a private studio nestled under the sloped roof of the top floor — a quiet, bright space designed for restful retreat. It features a spacious living area, two separate beds, and a delicately separated bathroom. The interior is styled in soft tones and classic silhouettes, with a hand-painted wardrobe, an ornamented display cabinet, and a refined dresser with mirror, bringing a homely feel and aesthetic completeness. Panoramic windows, a baroque seating area, and a flat-screen TV offer both privacy and convenience. The practical layout makes it suitable for solo travelers or two guests. "Sofia" provides silence, space, and independence — with all the necessary comforts under one roof.',
 
-    size: "35m²",
     capacity: { adults: 2, children: 1 },
     bedConfiguration: "Две отделни легла",
     bedConfigurationEn: "Two separate beds",
@@ -338,8 +335,8 @@ export const rooms = [
 
   {
     id: 4,
-    name: "Александрия",
-    nameEn: "Alexandria Room",
+    name: "Alexandria",
+    nameEn: "Alexandria",
     type: roomTypes.DELUXE,
     description:
       "Пищна, симетрична и изразително топла, стая Александрия впечатлява с класически бароков силует, драматична стенна композиция и дълбоки земни тонове.",
@@ -350,7 +347,6 @@ export const rooms = [
     longDescriptionEn:
       "Lush, symmetrical, and warmly expressive, the Alexandria Room impresses with a classic baroque silhouette, dramatic wall composition, and deep earthy tones. Furnished with handcrafted Italian pieces, it combines gold accents, upholstered beds, and rich textures in a style that radiates refinement and comfort. The space ensures complete privacy and quiet, while large windows allow natural light to shape the atmosphere throughout the day. The amenities are selected with attention to detail – a fine porcelain display cabinet, minibar, TV, wardrobe, and vanity with mirror create a functional and elegant setting. The bathroom features a shower, bidet, and sink in warm stone finishes, maintaining the room's overall aesthetic language. Alexandria balances coziness and independence — ideal for romantic stays or personal retreats.",
 
-    size: "40m²",
     capacity: { adults: 2, children: 1 },
     bedConfiguration: "Две самостоятелни легла",
     bedConfigurationEn: "Two separate beds",
@@ -399,8 +395,8 @@ export const rooms = [
 
   {
     id: 5,
-    name: "Рим",
-    nameEn: "Rome Room",
+    name: "Rome",
+    nameEn: "Rome",
     type: roomTypes.SUITE,
     description:
       "Стая Рим носи дискретен разкош, вдъхновен от духа на класическата италианска естетика. Просторна и добре осветена, тя съчетава мекотата на кремави тонове с дълбочината на смарагдови акценти.",
@@ -411,7 +407,6 @@ export const rooms = [
     longDescriptionEn:
       "The Rome Room exudes understated luxury, inspired by classic Italian aesthetics. Spacious and well-lit, it combines the softness of cream tones with the depth of emerald accents. Mirrors framed in hand-painted ornaments add depth and peaceful symmetry, while the decorative details on the bed and furniture create a sense of harmonious completeness. An elegant seating area, a display cabinet with decorative glassware, and a separate dining space enhance the feeling of comfort and livability. The room also features a small balcony overlooking the center of Kostinbrod, adding a gentle urban vibrancy without disturbing the sense of seclusion. This room offers both intimacy and sophistication — a home-like atmosphere where every detail is thoughtfully placed.",
 
-    size: "50m²",
     capacity: { adults: 2, children: 2 },
     bedConfiguration: "King Size легло",
     bedConfigurationEn: "King-size bed",
@@ -460,8 +455,8 @@ export const rooms = [
 
   {
     id: 6,
-    name: "Виена",
-    nameEn: "Vienna Room",
+    name: "Vienna",
+    nameEn: "Vienna",
     type: roomTypes.DELUXE,
     description:
       "Стаята Виена улавя елегантността на стария Виенски дух с подчертана изисканост и внимание към всеки детайл.",
@@ -472,7 +467,6 @@ export const rooms = [
     longDescriptionEn:
       "The Vienna Room captures the elegance of old Viennese spirit with pronounced refinement and attention to every detail. Soft light filters through heavy curtains in deep orange tones, while classic armchairs and finely carved furniture give the interior a sense of completeness. The space exudes natural balance — an elegant blend of functionality and aesthetics. The intimate seating area is designed for moments that call for time and quiet. Every corner reflects thoughtful care — from the delicate wood ornamentation to the balcony overlooking the vibrant rhythm of Kostinbrod's center, without breaking the sense of privacy.",
 
-    size: "45m²",
     capacity: { adults: 2, children: 1 },
     bedConfiguration: "Две отделни легла",
     bedConfigurationEn: "Two separate beds",
