@@ -24,28 +24,28 @@ const HeroCarousel = () => {
   const slides = [
     {
       id: 1,
-      image: '/Carousel-Images/dji_fly_20250726_193852_69_1753547956401_photo_optimized.jpeg',
+      image: '/Carousel-Images/dji_fly_20250726_193852_69_1753547956401_photo_optimized_converted.jpg',
       title: t('home.hero.title'),
       subtitle: t('home.hero.subtitle'),
       overlay: 'from-black/60 via-black/30 to-transparent'
     },
     {
       id: 2,
-      image: '/Carousel-Images/dji_fly_20250726_194044_78_1753548086076_photo_optimized.jpeg',
+      image: '/Carousel-Images/dji_fly_20250726_194044_78_1753548086076_photo_optimized_converted.jpg',
       title: t('home.hero.luxuryAccommodations'),
       subtitle: t('home.hero.luxuryAccommodationsSubtitle'),
       overlay: 'from-black/50 via-black/25 to-transparent'
     },
     {
       id: 3,
-      image: '/Carousel-Images/IMG_7633.HEIC.jpg',
+      image: '/Carousel-Images/IMG_7633.HEIC_converted.jpg',
       title: t('home.hero.exceptionalDining'),
       subtitle: t('home.hero.exceptionalDiningSubtitle'),
       overlay: 'from-black/55 via-black/30 to-transparent'
     },
     {
       id: 4,
-      image: '/Carousel-Images/IMG_7670.HEIC.jpg',
+      image: '/Carousel-Images/IMG_7670.HEIC_converted.jpg',
       title: t('home.hero.primeLocation'),
       subtitle: t('home.hero.primeLocationSubtitle'),
       overlay: 'from-black/60 via-black/35 to-transparent'
