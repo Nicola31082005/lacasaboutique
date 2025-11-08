@@ -89,8 +89,8 @@ const LocationMap = () => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              <Marker 
-                position={[hotelLocation.lat, hotelLocation.lng]} 
+              <Marker
+                position={[hotelLocation.lat, hotelLocation.lng]}
                 icon={hotelIcon}
               >
                 <Popup>
@@ -126,7 +126,7 @@ const LocationMap = () => {
               <h3 className="mb-4 text-secondary-900 text-xl font-semibold">
                 {t('footer.contact.title')}
               </h3>
-              
+
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1">
@@ -172,30 +172,42 @@ const LocationMap = () => {
           <div className="card">
             <div className="p-6">
               <h3 className="mb-4 text-secondary-900 text-xl font-semibold">
-                Getting Here
+                {t('home.gettingHere.title')}
               </h3>
-              
-              <div className="space-y-3">
+
+              <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <span className="text-2xl">🚗</span>
                   <div>
-                    <p className="font-medium text-secondary-900">By Car</p>
+                    <p className="font-medium text-secondary-900">{t('home.gettingHere.byCar')}</p>
                     <p className="text-secondary-600 text-sm">{hotelInfo.transportation.parking.type}</p>
                   </div>
                 </div>
 
-
                 <div className="flex items-center space-x-3">
                   <span className="text-2xl">✈️</span>
                   <div>
-                    <p className="font-medium text-secondary-900">From Airport</p>
+                    <p className="font-medium text-secondary-900">{t('home.gettingHere.fromAirport')}</p>
                     <p className="text-secondary-600 text-sm">{hotelInfo.transportation.airport.time} by {hotelInfo.transportation.airport.methods.join('/')}</p>
                   </div>
                 </div>
+
+                {/* Airport Transfer Highlight */}
+                {hotelInfo.transportation.airport.transferService.available && (
+                  <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-4 rounded-lg border border-primary-200">
+                    <div className="flex items-start space-x-3">
+                      <span className="text-2xl">🚐</span>
+                      <div>
+                        <p className="font-semibold text-primary-700">{t('home.gettingHere.airportTransfer')}</p>
+                        <p className="text-primary-600 text-sm mt-1">{t('home.gettingHere.transferInfo')}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
 
               <button className="w-full mt-4 btn-primary text-sm">
-                Get Directions
+                {t('home.gettingHere.getDirections')}
               </button>
             </div>
           </div>
@@ -205,4 +217,4 @@ const LocationMap = () => {
   );
 };
 
-export default LocationMap; 
+export default LocationMap;

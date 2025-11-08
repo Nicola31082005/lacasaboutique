@@ -25,9 +25,6 @@ const About = () => {
             <h1 className="mb-4 text-white">
               {t('about.title')}
             </h1>
-            <p className="text-xl text-secondary-100 max-w-2xl mx-auto">
-              {t('about.subtitle')}
-            </p>
           </div>
         </div>
       </section>
@@ -60,7 +57,7 @@ const About = () => {
             </div>
             <div className="h-96 rounded-lg overflow-hidden shadow-lg">
               <img
-                src="/Carousel-Images/IMG_7670.HEIC.jpg"
+                src="/Carousel-Images/IMG_7670.HEIC_converted.jpg"
                 alt="Hotel Story"
                 className="w-full h-full object-cover"
               />
@@ -102,6 +99,73 @@ const About = () => {
         </div>
       </section>
 
+      {/* Getting Here Section */}
+      <section className="section-padding bg-primary-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="mb-4 text-secondary-900">
+              {t('about.gettingHere.title')}
+            </h2>
+            <p className="text-secondary-600 text-lg">
+              {t('about.gettingHere.subtitle')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Location */}
+            <div className="card text-center hover:shadow-xl transition-all duration-300 border border-primary-200">
+              <div className="p-8">
+                <div className="text-4xl mb-4">📍</div>
+                <h3 className="mb-4 text-secondary-900">
+                  {t('about.gettingHere.location.title')}
+                </h3>
+                <p className="text-secondary-600 leading-relaxed">
+                  {t('about.gettingHere.location.description')}
+                </p>
+              </div>
+            </div>
+
+            {/* Directions */}
+            <div className="card text-center hover:shadow-xl transition-all duration-300 border border-primary-200">
+              <div className="p-8">
+                <div className="text-4xl mb-4">🗺️</div>
+                <h3 className="mb-4 text-secondary-900">
+                  {t('about.gettingHere.directions.title')}
+                </h3>
+                <div className="space-y-3 text-secondary-600">
+                  <p className="text-sm leading-relaxed">
+                    {t('about.gettingHere.directions.fromSofia')}
+                  </p>
+                  <p className="text-sm leading-relaxed">
+                    {t('about.gettingHere.directions.fromAirport')}
+                  </p>
+                  <p className="text-sm leading-relaxed font-medium text-primary-600">
+                    {t('about.gettingHere.directions.parking')}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Airport Transfers */}
+            <div className="card text-center hover:shadow-xl transition-all duration-300 border border-primary-200 bg-gradient-to-br from-primary-50 to-primary-100">
+              <div className="p-8">
+                <div className="text-4xl mb-4">✈️</div>
+                <h3 className="mb-4 text-secondary-900">
+                  {t('about.gettingHere.transfers.title')}
+                </h3>
+                <p className="text-secondary-600 leading-relaxed mb-4">
+                  {t('about.gettingHere.transfers.description')}
+                </p>
+                <div className="bg-white p-4 rounded-lg border border-primary-200">
+                  <p className="text-sm text-secondary-600 font-medium">
+                    {t('about.gettingHere.transfers.contactForBooking')}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Call to Action Section */}
       <section className="section-padding bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400 text-white">

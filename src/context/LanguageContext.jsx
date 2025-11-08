@@ -47,6 +47,14 @@ const translations = {
       location: {
         title: 'Our Location',
         description: 'Perfectly situated in the heart of the city'
+      },
+      gettingHere: {
+        title: 'Getting Here',
+        byCar: 'By Car',
+        fromAirport: 'From Airport',
+        airportTransfer: 'Airport Transfer Available',
+        transferInfo: 'We offer airport transfer service - contact us when booking',
+        getDirections: 'Get Directions'
       }
     },
 
@@ -99,6 +107,26 @@ const translations = {
         subtitle: 'Join thousands of satisfied guests who have made unforgettable memories with us.',
         viewRooms: 'View Our Rooms',
         contactUs: 'Contact Us'
+      },
+      gettingHere: {
+        title: 'Getting Here',
+        subtitle: 'Find us easily and travel with comfort',
+        location: {
+          title: 'Location',
+          description: 'La Casa Boutique is conveniently located in the center of Kostinbrod, just minutes from Sofia.'
+        },
+        directions: {
+          title: 'Directions',
+          fromSofia: 'From Sofia center: 20 minutes by car via A1 highway',
+          fromAirport: 'From Sofia Airport: 30 minutes by car or shuttle service',
+          parking: 'Free parking available on-site'
+        },
+        transfers: {
+          title: 'Airport Transfers',
+          description: 'We offer convenient airport transfer service for our guests.',
+          bookingInfo: 'Please contact us when making your reservation to arrange airport pickup.',
+          contactForBooking: 'Airport transfers can be arranged upon request during booking.'
+        }
       }
     },
 
@@ -192,6 +220,14 @@ const translations = {
       location: {
         title: 'Нашето местоположение',
         description: 'Перфектно разположен в сърцето на града'
+      },
+      gettingHere: {
+        title: 'Как да стигнете до нас',
+        byCar: 'С кола',
+        fromAirport: 'От летището',
+        airportTransfer: 'Наличен трансфер от летището',
+        transferInfo: 'Предлагаме услуга за трансфер от летището - свържете се с нас при резервация',
+        getDirections: 'Вземете указания'
       }
     },
 
@@ -244,6 +280,26 @@ const translations = {
         subtitle: 'Присъединете се към хиляди доволни гости, които са направили незабравими спомени с нас.',
         viewRooms: 'Вижте нашите стаи',
         contactUs: 'Свържете се с нас'
+      },
+      gettingHere: {
+        title: 'Как да стигнете до нас',
+        subtitle: 'Намерете ни лесно и пътувайте удобно',
+        location: {
+          title: 'Местоположение',
+          description: 'La Casa Boutique е удобно разположен в центъра на гр. Костинброд, само на минути от София.'
+        },
+        directions: {
+          title: 'Указания',
+          fromSofia: 'От центъра на София: 20 минути с кола по магистрала А1',
+          fromAirport: 'От летище София: 30 минути с кола или трансферна услуга',
+          parking: 'Безплатен паркинг на място'
+        },
+        transfers: {
+          title: 'Трансфер от летището',
+          description: 'Предлагаме удобна услуга за трансфер от летището за нашите гости.',
+          bookingInfo: 'Моля, свържете се с нас при правене на резервация, за да организирате трансфер от летището.',
+          contactForBooking: 'Трансферът от летището може да бъде организиран при поискване по време на резервацията.'
+        }
       }
     },
 
