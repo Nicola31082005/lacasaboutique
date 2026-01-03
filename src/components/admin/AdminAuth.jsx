@@ -38,7 +38,18 @@ const AdminAuth = ({ onAuthenticated }) => {
       const userRepos = await getUserRepos(data.token);
       setRepos(userRepos);
 
-      // Check if we have a stored repo
+      // Auto-find lacasaboutique repo
+      const lacasaRepo = userRepos.find(
+        r => r.name.toLowerCase() === 'lacasaboutique'
+      );
+
+      if (lacasaRepo) {
+        storeRepo(lacasaRepo.owner.login, lacasaRepo.name);
+        onAuthenticated(data.token, lacasaRepo.owner.login, lacasaRepo.name);
+        return;
+      }
+
+      // Fallback: Check if we have a stored repo
       const storedRepo = getStoredRepo();
       if (storedRepo) {
         const repoExists = userRepos.find(
@@ -50,6 +61,7 @@ const AdminAuth = ({ onAuthenticated }) => {
         }
       }
 
+      // If no lacasaboutique found, show repo selection
       setStep('repo');
     } catch (err) {
       setError(err.message);
