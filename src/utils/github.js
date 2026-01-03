@@ -139,7 +139,7 @@ export const updateFile = async (
     const body = {
       message,
       content: btoa(unescape(encodeURIComponent(content))), // Handle UTF-8 properly
-      branch: "main", // Default branch
+      branch: "master", // Default branch
     };
 
     // If updating existing file, include SHA
