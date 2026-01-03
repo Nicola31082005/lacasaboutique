@@ -249,14 +249,15 @@ export const rooms = [
       "/The Golden suite/IMG_8027_converted.jpg"
     ],
     "amenities": [
-      roomAmenities.TWO_BEDROOMS,
-      roomAmenities.TWO_BATHROOMS,
-      roomAmenities.BALCONY,
-      roomAmenities.TV,
-      roomAmenities.AC,
-      roomAmenities.MINIBAR,
       roomAmenities.WIFI,
-      roomAmenities.WARDROBE
+      roomAmenities.AC,
+      roomAmenities.TV,
+      roomAmenities.MINIBAR,
+      roomAmenities.BALCONY,
+      roomAmenities.CITY_VIEW,
+      roomAmenities.WARDROBE,
+      roomAmenities.TWO_BEDROOMS,
+      roomAmenities.TWO_BATHROOMS
     ],
     "features": {
       "smokingAllowed": false,
